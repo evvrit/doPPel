@@ -1,11 +1,11 @@
 .navbar-lewagon {
   background: white;
-  // overflow: hidden;
+  // overflow: hidden; (so the we can see all the dropdown menu)
   justify-content: space-between;
-  // position: fixed;
-//   top: 0;
-//   width: 100%;
-//   border-bottom: 1px solid #68C8B1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #68C8B1;
 }
 
 .navbar-lewagon .navbar-collapse {
