@@ -1,11 +1,6 @@
 class BookingsController < ApplicationController
-<<<<<<< HEAD
-  before_action :set_booking, except: :index
-  before_action :set_doppelganger, only: :create
-=======
   before_action :set_booking, only: %i[show destroy]
   before_action :set_doppelganger, only: [:new, :create]
->>>>>>> master
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
@@ -43,13 +38,6 @@ class BookingsController < ApplicationController
 
   def set_doppelganger
     @doppelganger = Doppelganger.find(params[:doppelganger_id])
-<<<<<<< HEAD
-  end
-
-  def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :address, :status)
-=======
->>>>>>> master
   end
 
   def booking_params
