@@ -1,1 +1,9 @@
 <p> this will contain a form to edit a doppelganger </p>
+
+<%= simple_form_for @doppelganger do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :location, collection: %w[Montreal Toronto Ottawa] %>
+  <%= f.input :rate %>
+  <%= f.submit %>
+<% end %>

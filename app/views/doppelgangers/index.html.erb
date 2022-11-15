@@ -1,5 +1,9 @@
-<p> this page will list doppelgangers </p>
+<div class="container">
+  <p> this page will list doppelgangers </p>
 
-<% @doppelgangers.each do |doppelganger| %>
-  <%= doppelganger.first_name doppelganger.last_name %>
-<% end %>
+  <ol>
+    <% @doppelgangers.each do |doppelganger| %>
+      <li><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></li>
+    <% end %>
+  </ol>
+</div>
