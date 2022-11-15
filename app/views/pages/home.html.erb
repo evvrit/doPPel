@@ -1,2 +1,16 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="cards">
+  <% 12.times do %>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Name, Location</h2>
+            <p>Profession</p>
+          </div>
+          <h2 class="card-trip-pricing">$CAD day</h2>
+        </div>
+      </div>
+  <% end %>
+</div>
