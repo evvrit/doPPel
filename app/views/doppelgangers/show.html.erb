@@ -10,4 +10,11 @@
   <%= link_to "edit", edit_doppelganger_path(@doppelganger) %>
   <%= link_to "delete", doppelganger_path(@doppelganger),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  </div>
+
+  <%= simple_form_for [@doppelganger, @booking] do |f| %>
+    <%= f.input :address %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit %>
+  <% end %>
+</div>

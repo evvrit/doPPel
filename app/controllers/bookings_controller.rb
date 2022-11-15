@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, except: :index
+  before_action :set_doppelganger, only: [:new, :create]
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
@@ -13,8 +14,11 @@ class BookingsController < ApplicationController
   end
 
   def create
+    raise
     @booking = Booking.new(booking_params)
     @booking.doppelganger = @doppelganger
+    @booking.user = current_user
+    @booking.status = 0
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -34,7 +38,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def set_doppelganger
+    @doppelganger = Doppelganger.find(params[:doppelganger_id])
+  end
+
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :address, :status)
   end
+
 end
