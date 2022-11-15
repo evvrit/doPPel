@@ -4,9 +4,9 @@ puts "cleaning the DB of doppelgangers..."
 Doppelganger.destroy_all
 puts "DB is clean!"
 
-puts "making 20 fake doppelgangers"
+puts "making 12 fake doppelgangers"
 
-10.times do Doppelganger.create(
+12.times do Doppelganger.create(
   name: Faker::FunnyName.two_word_name,
   age: rand(21..100),
   location: %w[Montreal Toronto Ottawa].sample,
@@ -24,5 +24,5 @@ end
 #   user_id:
 # )
 
-puts "10 fake doppelgangers created."
+puts "12 fake doppelgangers created."
 # puts "20 fake bookings created."
