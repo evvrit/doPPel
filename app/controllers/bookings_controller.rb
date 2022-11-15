@@ -1,6 +1,9 @@
 class BookingsController < ApplicationController
-  # before_action :set_doppelganger, only: :show
   before_action :set_booking, except: :index
+
+  def index
+    @bookings = Booking.where(user_id: current_user.id)
+  end
 
   def show
   end
@@ -19,9 +22,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def index
-    @bookings = Booking.where(user_id: current_user.id)
-  end
 
   def destroy
     @booking.destroy
@@ -29,10 +29,6 @@ class BookingsController < ApplicationController
   end
 
   private
-
-  def set_doppelganger
-    @doppelganger = Doppelganger.find(params[:doppelganger_id])
-  end
 
   def set_booking
     @booking = Booking.find(params[:id])
