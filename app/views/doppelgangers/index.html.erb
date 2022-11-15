@@ -1,0 +1,5 @@
+<p> this page will list doppelgangers </p>
+
+<% @doppelgangers.each do |doppelganger| %>
+  <%= doppelganger.first_name doppelganger.last_name %>
+<% end %>
