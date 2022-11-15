@@ -1,0 +1,12 @@
+<div>
+  <ul>
+    <%= @bookings.each do |booking| %>
+    <li>
+      <% booking.doppelganger.name %>,
+      <% booking.address %>,
+      <% booking.start_time %>,
+      <% booking.end_time %>
+    </li>
+    <% end %>
+  </ul>
+</div>

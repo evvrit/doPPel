@@ -19,6 +19,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def renter_bookings_index
+    @bookings = Booking.where(current_user.id == @booking.user_id)
+  end
+
   private
 
   def set_doppelganger
