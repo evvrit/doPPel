@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_doppelganger
-  before_action :set_booking
+  # before_action :set_doppelganger, only: :show
+  before_action :set_booking, except: :index
 
   def show
   end
@@ -19,8 +19,8 @@ class BookingsController < ApplicationController
     end
   end
 
-  def renter_bookings_index
-    @bookings = Booking.where(current_user.id == @booking.user_id)
+  def index
+    @bookings = Booking.where(user_id: current_user.id)
   end
 
   private
