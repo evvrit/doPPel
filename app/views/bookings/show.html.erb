@@ -1,6 +1,8 @@
-<h1>Here is the info on your Booking</h1>
+<div class="container">
+  <h1>Here is the info on your Booking</h1>
 
-<h4><%= @booking.doppelganger.name %></h4>
-<p><%= @booking.address %></p>
-<p><%= @booking.start_date %></p>
-<p><%= @booking.end_date %></p>
+  <h4><%= @booking.doppelganger.name %></h4>
+  <p>will show up at <%= @booking.address %></p>
+  <p>start date: <%= @booking.start_date.strftime('%b %e, %l:%M %p') %></p>
+  <p>end date: <%= @booking.end_date.strftime('%b %e, %l:%M %p') %></p>
+</div>
