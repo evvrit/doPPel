@@ -1,6 +1,6 @@
 class Doppelganger < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   validates :name, presence: true
   validates :age, presence: true, comparison: { greater_than_or_equal_to: 21 }
