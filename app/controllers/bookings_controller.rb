@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, except: :index
+  before_action :set_doppelganger, only: :create
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
@@ -22,7 +23,6 @@ class BookingsController < ApplicationController
     end
   end
 
-
   def destroy
     @booking.destroy
     redirect_to bookings_path, status: :see_other
@@ -32,6 +32,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_doppelganger
+    @doppelganger = Doppelganger.find(params[:doppelganger_id])
   end
 
   def booking_params
