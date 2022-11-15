@@ -13,22 +13,32 @@ class DoppelgangersController < ApplicationController
   end
 
   def create
-    raise
+    @doppelganger = Doppelganger.new(doppelganger_params)
+    @doppelganger.user = current_user
+    if @doppelganger.save
+      redirect_to doppelganger_path(@doppelganger)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
   end
 
   def update
+    @doppelganger.update(doppelganger_params)
+    redirect_to doppelganger_path(@doppelganger)
   end
 
   def destroy
+    @doppelganger.destroy
+    redirect_to doppelgangers_path, status: :see_other
   end
 
   private
 
   def doppelganger_params
-
+    params.require(:doppelganger).permit(:name, :age, :location, :rate)
   end
 
   def set_doppelganger
