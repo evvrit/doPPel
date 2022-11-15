@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/agent-dopplegangers/:id", to: "doppelgangers#show"
-  resources :doppelgangers
+  resources :doppelgangers do
+    resources :bookings
+  end
 end
