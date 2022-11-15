@@ -23,6 +23,11 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user_id: current_user.id)
   end
 
+  def destroy
+    @booking.destroy
+    redirect_to bookings_path, status: :see_other
+  end
+
   private
 
   def set_doppelganger
