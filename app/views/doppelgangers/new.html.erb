@@ -1,9 +1,11 @@
-<p> this will have a form to create a new doppelganger </p>
+<div class="container">
+  <p>create a new doppelganger </p>
 
-<%= simple_form_for @doppelganger do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :location, collection: %w[Montreal Toronto Ottawa] %>
-  <%= f.input :rate %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for @doppelganger do |f| %>
+    <%= f.input :name %>
+    <%= f.input :age %>
+    <%= f.input :location, collection: %w[Montreal Toronto Ottawa] %>
+    <%= f.input :rate %>
+    <%= f.submit %>
+  <% end %>
+</div>
