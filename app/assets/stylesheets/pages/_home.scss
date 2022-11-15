@@ -1,6 +1,11 @@
 // Specific CSS for your home-page
+body {
+  background-color: #ffffff;
+  }
+
 .card-trip {
-  height: 300px;
+  border-radius: 5%;
+  height: 280px;
   width: 200px;
   overflow: hidden;
   background: white;
@@ -34,17 +39,21 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
+// .card-trip-infos .card-trip-user {
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+// }
 
 .cards {
+  padding-top: 150px;
+  padding-left: 90px;
+  padding-right: 90px;
+  align-items: center;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 50px;
 }
 
 // // Smallest device
