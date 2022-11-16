@@ -18,6 +18,8 @@
   </div>
 
   <div>
-    <%= render 'doppelgangers/booking_form' %>
+    <% if @doppelganger.user_id != current_user.id %>
+      <%= render 'doppelgangers/booking_form' %>
+    <% end %>
   </div>
 </div>
