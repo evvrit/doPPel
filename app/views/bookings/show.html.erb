@@ -8,10 +8,16 @@
     <p>start date: <%= @booking.start_date.strftime('%b %e, %l:%M %p') %></p>
     <p>end date: <%= @booking.end_date.strftime('%b %e, %l:%M %p') %></p>
     <p>status: <%= @booking.status %></p>
-    <div data-controller="bookings">
-      <%= link_to "accept", data: { target: "acceptButton", action: "click->bookings#connect"} %>
-      <%= link_to "reject", data: { target: "rejectButton", action: "click->bookings#connect"} %>
-      <%= link_to "cancel", data: { target: "cancelButton", action: "click->bookings#connect"} %>
-    </div>
+    <% if @booking.doppelganger.user == current_user && @booking.status == "pending" %>
+      <div>
+        <%= link_to "accept",  set_status_path(@booking, status: 1) %>
+        <%= link_to "reject",  set_status_path(@booking, status: 2) %>
+      </div>
+    <% end %>
+    <% if @booking.user == current_user && @booking.status == "pending" %>
+      <div>
+        <%= link_to "cancel",  set_status_path(@booking, status: 3) %>
+      </div>
+    <% end %>
   </div>
 </div>
