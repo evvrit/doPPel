@@ -9,8 +9,8 @@
           <%= link_to "see details", booking_path(booking) %>
           <%= booking.doppelganger.name %>,
           <%= booking.address %>,
-          <%= booking.start_date %>,
-          <%= booking.end_date %>
+          <%= booking.start_date.strftime('%b %e, %l:%M %p') %>,|
+        <%= booking.end_date.strftime('%b %e, %l:%M %p') %>|
         </li>
       </div>
       <% end %>
