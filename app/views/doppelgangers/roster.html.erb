@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Here is your roster</h1>
+  <ul>
+    <% @roster.each do |doppelganger| %>
+    <li>
+      <div class="photo">
+        <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px">
+      </div>
+      <h4><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h1>
+      <p><%= doppelganger.age %></p>
+      <p><%= doppelganger.location %></p>
+      <p><%= doppelganger.rate %></p>
+    </li>
+    <% end %>
+  </ul>
+</div>
