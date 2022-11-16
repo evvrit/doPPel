@@ -5,9 +5,9 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h2>
-            <p>Profession</p>
+            <p><%= doppelganger.bio %></p>
           </div>
-          <h3 class="card-pricing"><p>$CAD day</p></h3>
+          <h3 class="card-pricing"><p><%= doppelganger.rate %>$CAD day</p></h3>
         </div>
       </div>
   <% end %>
