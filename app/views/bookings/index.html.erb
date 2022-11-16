@@ -1,16 +1,19 @@
 <div class="container">
-  <ul>
-    <% @bookings.each do |booking| %>
-    <div class="booking_card">
-      <li>
-        <%= link_to "see details", booking_path(booking) %>|
-        <%= booking.doppelganger.name %>,|
-        <%= booking.address %>,|
-        <%= booking.start_date.strftime('%b %e, %l:%M %p') %>,|
+  <% if @bookings.empty? %>
+    <p> You have no bookings. </p>
+  <% else %>
+    <ul>
+      <% @bookings.each do |booking| %>
+      <div class="booking_card">
+        <li>
+          <%= link_to "see details", booking_path(booking) %>
+          <%= booking.doppelganger.name %>,
+          <%= booking.address %>,
+          <%= booking.start_date.strftime('%b %e, %l:%M %p') %>,|
         <%= booking.end_date.strftime('%b %e, %l:%M %p') %>|
-        <%= booking.status %>
-      </li>
-    </div>
-    <% end %>
-  </ul>
+        </li>
+      </div>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

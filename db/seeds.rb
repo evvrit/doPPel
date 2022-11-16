@@ -11,6 +11,7 @@ puts "making 12 fake doppelgangers"
   age: rand(21..100),
   location: %w[Montreal Toronto Ottawa].sample,
   rate: rand(20..500),
+  bio: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
   user: User.all.sample
 )
 end
