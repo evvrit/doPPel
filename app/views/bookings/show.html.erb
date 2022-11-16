@@ -1,11 +1,17 @@
 <div class="container">
   <div>
     <h1>Here is the info on your Booking</h1>
+    <%= link_to "back to my bookings", bookings_path %>
 
     <h4><%= @booking.doppelganger.name %></h4>
     <p>will show up at <%= @booking.address %></p>
     <p>start date: <%= @booking.start_date.strftime('%b %e, %l:%M %p') %></p>
     <p>end date: <%= @booking.end_date.strftime('%b %e, %l:%M %p') %></p>
     <p>status: <%= @booking.status %></p>
+    <div data-controller="bookings">
+      <%= link_to "accept", data: { target: "acceptButton", action: "bookings#connect"} %>
+      <%= link_to "reject", data: { target: "rejectButton"} %>
+      <%= link_to "cancel", data: { target: "cancelButton"} %>
+    </div>
   </div>
 </div>
