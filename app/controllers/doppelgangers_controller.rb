@@ -5,6 +5,10 @@ class DoppelgangersController < ApplicationController
     @doppelgangers = Doppelganger.all
   end
 
+  def roster
+    @roster = Doppelganger.where(user_id: current_user.id)
+  end
+
   def show
     @booking = Booking.new
   end
@@ -17,7 +21,7 @@ class DoppelgangersController < ApplicationController
     @doppelganger = Doppelganger.new(doppelganger_params)
     @doppelganger.user = current_user
     if @doppelganger.save
-      redirect_to doppelganger_path(@doppelganger)
+      redirect_to my_roster_path(@doppelganger)
     else
       render :new, status: :unprocessable_entity
     end
