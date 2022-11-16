@@ -5,3 +5,10 @@
   margin-top:100px;
   flex-direction: column;
 }
+
+.doppelganger_info {
+  display: flex;
+  .photo {
+    margin-right: 10px;
+  }
+}
