@@ -37,7 +37,7 @@ class DoppelgangersController < ApplicationController
 
   def destroy
     @doppelganger.destroy
-    redirect_to doppelgangers_path, status: :see_other
+    redirect_to my_roster_path, status: :see_other
   end
 
   private
