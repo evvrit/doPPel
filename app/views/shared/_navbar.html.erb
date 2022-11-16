@@ -102,14 +102,10 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
               <%= link_to "Homepage", "/", class: "dropdown-item" %>
               <%= link_to "(User) - See my bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "(Agent) - See my bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "(Agent) - New doppelganger", new_doppelganger_path, class: "dropdown-item"%>
-=======
-              <%= link_to "See my bookings", bookings_path, class: "dropdown-item" %>
->>>>>>> master
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
