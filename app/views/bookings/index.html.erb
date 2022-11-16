@@ -1,12 +1,14 @@
-<div>
+<div class="container">
   <ul>
     <% @bookings.each do |booking| %>
-    <li>
-      <%= booking.doppelganger.name %>,
-      <%= booking.address %>,
-      <%= booking.start_date %>,
-      <%= booking.end_date %>
-    </li>
+    <div class="booking_card">
+      <li>
+        <%= booking.doppelganger.name %>,
+        <%= booking.address %>,
+        <%= booking.start_date %>,
+        <%= booking.end_date %>
+      </li>
+    </div>
     <% end %>
   </ul>
 </div>
