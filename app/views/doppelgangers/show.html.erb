@@ -12,9 +12,12 @@
   </div>
 
   <div class="links">
-    <%# <%= link_to "edit", edit_doppelganger_path(@doppelganger) %> %>
-    <%# <%= link_to "delete", doppelganger_path(@doppelganger), %>
-    <%# data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> %>
+    <%= link_to "< home", doppelgangers_path %>
+    <% if @doppelganger.user == current_user %>
+      <%= link_to "edit", edit_doppelganger_path(@doppelganger) %>
+      <%= link_to "delete", doppelganger_path(@doppelganger),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% end %>
   </div>
 
   <div>
