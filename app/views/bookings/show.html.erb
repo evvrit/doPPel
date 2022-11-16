@@ -9,9 +9,9 @@
     <p>end date: <%= @booking.end_date.strftime('%b %e, %l:%M %p') %></p>
     <p>status: <%= @booking.status %></p>
     <div data-controller="bookings">
-      <%= link_to "accept", data: { target: "acceptButton", action: "bookings#connect"} %>
-      <%= link_to "reject", data: { target: "rejectButton"} %>
-      <%= link_to "cancel", data: { target: "cancelButton"} %>
+      <%= link_to "accept", data: { target: "acceptButton", action: "click->bookings#connect"} %>
+      <%= link_to "reject", data: { target: "rejectButton", action: "click->bookings#connect"} %>
+      <%= link_to "cancel", data: { target: "cancelButton", action: "click->bookings#connect"} %>
     </div>
   </div>
 </div>
