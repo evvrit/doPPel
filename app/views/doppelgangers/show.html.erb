@@ -1,16 +1,20 @@
 <div class="container">
   <div class="doppelganger_info">
-    <h1><%= @doppelganger.name %></h1>
-    <p><%= @doppelganger.age %> years old</p>
-    <p> in <%= @doppelganger.location %></p>
-    <p> $ <%= @doppelganger.rate %> /hour </p>
+    <div class="photo">
+      <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px">
+    </div>
+    <div>
+      <h1><%= @doppelganger.name %></h1>
+      <p><%= @doppelganger.age %> years old</p>
+      <p> in <%= @doppelganger.location %></p>
+      <p> $ <%= @doppelganger.rate %> /hour </p>
+    </div>
   </div>
 
   <div class="links">
-    <%= link_to "< home", doppelgangers_path %>
-    <%= link_to "edit", edit_doppelganger_path(@doppelganger) %>
-    <%= link_to "delete", doppelganger_path(@doppelganger),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <%# <%= link_to "edit", edit_doppelganger_path(@doppelganger) %> %>
+    <%# <%= link_to "delete", doppelganger_path(@doppelganger), %>
+    <%# data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> %>
   </div>
 
   <div class="booking_form">
