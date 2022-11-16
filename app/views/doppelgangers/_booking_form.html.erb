@@ -1,0 +1,8 @@
+<div class="booking_form">
+    <%= simple_form_for [@doppelganger, @booking] do |f| %>
+      <%= f.input :address %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit %>
+    <% end %>
+  </div>

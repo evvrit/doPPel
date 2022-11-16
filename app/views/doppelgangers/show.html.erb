@@ -17,12 +17,7 @@
     <%# data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> %>
   </div>
 
-  <div class="booking_form">
-    <%= simple_form_for [@doppelganger, @booking] do |f| %>
-      <%= f.input :address %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.submit %>
-    <% end %>
+  <div>
+    <%= render 'doppelgangers/booking_form' %>
   </div>
 </div>
