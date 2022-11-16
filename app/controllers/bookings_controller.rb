@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render :new, status: :unprocessable_entity
+      render 'doppelgangers/show', status: :unprocessable_entity
     end
   end
 
