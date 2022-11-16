@@ -1,10 +1,23 @@
 <div class="container">
   <div>
     <h1>Here is the info on your Booking</h1>
+    <%= link_to "back to my bookings", bookings_path %>
 
     <h4><%= @booking.doppelganger.name %></h4>
     <p>will show up at <%= @booking.address %></p>
     <p>start date: <%= @booking.start_date.strftime('%b %e, %l:%M %p') %></p>
     <p>end date: <%= @booking.end_date.strftime('%b %e, %l:%M %p') %></p>
+    <p>status: <%= @booking.status %></p>
+    <% if @booking.doppelganger.user == current_user && @booking.status == "pending" %>
+      <div>
+        <%= link_to "accept",  set_status_path(@booking, status: 1) %>
+        <%= link_to "reject",  set_status_path(@booking, status: 2) %>
+      </div>
+    <% end %>
+    <% if @booking.user == current_user && @booking.status == "pending" %>
+      <div>
+        <%= link_to "cancel",  set_status_path(@booking, status: 3) %>
+      </div>
+    <% end %>
   </div>
 </div>
