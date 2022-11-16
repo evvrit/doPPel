@@ -24,6 +24,7 @@
   object-fit: cover;
 }
 
+
 .card-trip h2 {
   padding-left: 2px;
   padding-right: 2px;
@@ -35,23 +36,25 @@
 .card-trip p {
   padding-left: 2px;
   padding-right: 2px;
-  font-size: 10px;
+  font-size: 15px;
   // opacity: .7; (do not uncomment!)
   margin: 0;
 }
 
-// .card-trip-pricing p {
-//   font-size: 20px;
+.card-pricing p {
+  font-size: 15px;
+  text-align: right;
+}
 
-// }
 
 
 .card-trip .card-trip-infos {
+  text-align: left;
   padding: 1px;
-  display: flex;
+  // display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  // position: relative;
+  position: relative;
 }
 
 .card-trip-infos .card-trip-user {
