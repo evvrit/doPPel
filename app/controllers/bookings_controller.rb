@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show destroy]
+  before_action :set_booking, only: %i[show destroy set_status]
   before_action :set_doppelganger, only: %i[new create]
 
   def index
@@ -28,6 +28,21 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to bookings_path, status: :see_other
+  end
+
+  def set_status
+    # raise
+    case params[:status].to_i
+    when 1
+      @booking.accepted!
+    when 2
+      @booking.rejected!
+    when 3
+      @booking.canceled!
+    else
+      ""
+    end
+    redirect_to booking_path(@booking)
   end
 
   private
