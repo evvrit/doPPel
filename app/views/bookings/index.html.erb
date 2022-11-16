@@ -1,7 +1,7 @@
 <div class="container">
   <ul>
     <% @bookings.each do |booking| %>
-    <div class="card">
+    <div class="booking_card">
       <li>
         <%= link_to "see details", booking_path(booking) %>
         <%= booking.doppelganger.name %>,
