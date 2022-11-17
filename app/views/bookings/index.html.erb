@@ -1,16 +1,21 @@
 <div class="container">
+
   <% if @bookings.empty? %>
     <p> You have no bookings. </p>
+
   <% else %>
     <% @bookings.each do |booking| %>
 
-    <div class="card">
 
-      <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" class="card-img-top" />
+      <% if booking.doppelganger.user == current_user %>
+        <h3>Bookings for your doppelganger(s)</h3>
 
-      <div class="card-body">
+        <div class="card">
+        <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" class="card-img-top" />
 
-        <h5 class="card-title"><%= booking.doppelganger.name %></h5>
+        <div class="card-body">
+
+          <h5 class="card-title"><%= booking.doppelganger.name %></h5>
           <b>Address : </b> <%= booking.address %>
           <br>
           <b>From : </b><%= booking.start_date.strftime('%b %e, %l:%M %p') %>
@@ -27,12 +32,38 @@
           <% end %>
 
           <%= link_to "See details", booking_path(booking), class: "button-53" %>
+        </div>
       </div>
 
-    </div>
+      <% elsif booking.user == current_user %>
 
+          <h3>Your rental bookings</h3>
+          <div class="card">
+          <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" class="card-img-top" />
+
+          <div class="card-body">
+
+            <h5 class="card-title"><%= booking.doppelganger.name %></h5>
+            <b>Address : </b> <%= booking.address %>
+            <br>
+            <b>From : </b><%= booking.start_date.strftime('%b %e, %l:%M %p') %>
+            <b>To : </b><%= booking.end_date.strftime('%b %e, %l:%M %p') %>
+
+            <% if booking.status == "pending" %>
+              <span class="badge text-bg-secondary"><%= booking.status %></span>
+            <% elsif booking.status == "accepted" %>
+              <span class="badge text-bg-success"><%= booking.status %></span>
+            <% elsif booking.status == "rejected" %>
+              <span class="badge text-bg-danger"><%= booking.status %></span>
+            <% elsif booking.status == "canceled" %>
+              <span class="badge text-bg-warning"><%= booking.status %></span>
+            <% end %>
+
+            <%= link_to "See details", booking_path(booking), class: "button-53" %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-
-    </ul>
   <% end %>
+
 </div>
