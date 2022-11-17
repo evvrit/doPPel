@@ -13,7 +13,11 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render "shared/navbar" %>
+    <% if current_page?(root_path) || current_page?(my_roster_path) %>
+      <%= render "shared/navbar_filters" %>
+    <% else %>
+      <%= render "shared/navbar_clean" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <div class="container">
       <%= yield %>
