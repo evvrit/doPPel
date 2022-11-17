@@ -4,7 +4,11 @@
     <% @roster.each do |doppelganger| %>
     <li>
       <div class="photo">
-        <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px">
+        <% if  doppelganger.photo.key !=nil %>
+          <%= cl_image_tag doppelganger.photo.key, width: 200, crop: :fill %>
+        <% else %>
+          <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px" />
+        <% end %>
       </div>
       <h4><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h1>
       <p><%= doppelganger.age %></p>

@@ -1,7 +1,11 @@
 <div class="cards">
   <% @doppelgangers.each do |doppelganger| %>
       <div class="card-trip">
+        <% if  doppelganger.photo.key !=nil %>
+          <%= cl_image_tag doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
+        <% else %>
         <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
+          <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h2>
