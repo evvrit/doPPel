@@ -65,9 +65,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_034341) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "bio"
-    t.integer "gender", default: 0
     t.float "latitude"
     t.float "longitude"
+    t.integer "gender", default: 0
     t.string "address"
     t.index ["user_id"], name: "index_doppelgangers_on_user_id"
   end
