@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_15_161745) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_17_034341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,7 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_161745) do
   create_table "doppelgangers", force: :cascade do |t|
     t.string "name"
     t.float "height"
-    t.string "location"
     t.integer "age"
     t.string "ethnicity"
     t.integer "rate"
@@ -38,6 +37,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_161745) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "bio"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["user_id"], name: "index_doppelgangers_on_user_id"
   end
 

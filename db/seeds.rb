@@ -4,12 +4,20 @@ puts "cleaning the DB of doppelgangers..."
 Doppelganger.destroy_all
 puts "DB is clean!"
 
-puts "making 12 fake doppelgangers"
+puts "making 24 fake doppelgangers..."
 
-12.times do Doppelganger.create(
+def build_address
+  num = rand(10..100)
+  street = %w[Papineau Laurier Victoria King Queen].sample
+  city = %w[Montreal Toronto Ottawa].sample
+  return num.to_s + " " + street + ", " + city
+end
+
+24.times do Doppelganger.create(
   name: Faker::FunnyName.two_word_name,
   age: rand(21..100),
-  location: %w[Montreal Toronto Ottawa].sample,
+  # location: %w[Montreal Toronto Ottawa].sample,
+  address: build_address,
   rate: rand(20..500),
   bio: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
   user: User.all.sample
@@ -25,5 +33,5 @@ end
 #   user_id:
 # )
 
-puts "12 fake doppelgangers created."
+puts "24 fake doppelgangers created, **not all with valid geocodes -- approx. 83% success rate.**"
 # puts "20 fake bookings created."
