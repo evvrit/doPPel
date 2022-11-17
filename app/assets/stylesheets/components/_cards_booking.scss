@@ -17,3 +17,30 @@
   border-top-right-radius: 0;
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
+
+.cardshow {
+  flex-direction: row;
+  // align-items: center;
+  border-color:#70e7cb;
+  margin-bottom: 30px;
+  // width: 1000px;
+  padding: 10px;
+  text-align: auto;
+  ;
+}
+
+.card-body-show {
+  // height: 500px;
+  overflow:auto;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+.show_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about {
+  width: 1000px;
+  margin: 0 auto;
+}

@@ -1,39 +1,44 @@
-
-<div class="flex-container">
-    <div class="doppelganger_info">
-      <div class="photo">
-        <% if  @doppelganger.photo.key !=nil %>
-          <%= cl_image_tag @doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
-        <% else %>
-          <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px" />
-        <% end %>
-      <div>
-        <h1><%= @doppelganger.name %></h1>
-        <p><%= @doppelganger.age %> years old</p>
-        <p><%= @doppelganger.gender %></p>
-        <p> $ <%= @doppelganger.rate %> /hour </p>
-        <h3> About Me </h3>
-        <%= @doppelganger.bio %>
-      </div>
-    </div>
-
-    <div class="links">
-      <% if @doppelganger.user == current_user %>
-        <%= link_to "edit", edit_doppelganger_path(@doppelganger) %>
-        <%= link_to "delete", doppelganger_path(@doppelganger),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-    </div>
-
-    <div>
-      <% if @doppelganger.user_id != current_user.id %>
-        <%= render 'doppelgangers/booking_form' %>
-      <% end %>
-    </div>
-
-  <div style="width: 100%; height: calc(100vh - 90px); position: sticky; top: 90px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+<br>
+<div style="width: 1000px; height: 300px; font-size: 15px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+<br>
+<div class="show_container">
+  <div class="cardshow" style="margin-right: 350px;">
+    <div class="card-img-top">
+      <% if  @doppelganger.photo.key !=nil %>
+        <%= cl_image_tag @doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
+      <% else %>
+        <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px" />
+      <% end %>
+    </div>
+    <div class="card-body-show">
+      <h1><%= @doppelganger.name %></h1>
+      <p><%= @doppelganger.age %> years old</p>
+      <p><%= @doppelganger.gender %></p>
+      <p> $ <%= @doppelganger.rate %> /hour </p>
+    </div>
+  </div>
+
+      <div>
+        <% if @doppelganger.user_id != current_user.id %>
+          <%= render 'doppelgangers/booking_form' %>
+        <% end %>
+      </div>
+
+      <div class="links">
+        <% if @doppelganger.user == current_user %>
+          <div class="my-doppelganger-icon">!</div>
+          <%= link_to "edit", edit_doppelganger_path(@doppelganger) %>
+          <%= link_to "delete", doppelganger_path(@doppelganger),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% end %>
+      </div>
+</div>
+<div class="about">
+      <h3> About Me </h3>
+      <%= @doppelganger.bio %>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  </div>
