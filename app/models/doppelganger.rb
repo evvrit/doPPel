@@ -10,7 +10,7 @@ class Doppelganger < ApplicationRecord
   validates :address, presence: true
   validates :age, presence: true, comparison: { greater_than_or_equal_to: 21 }
   validates :rate, presence: true, comparison: { greater_than_or_equal_to: 20 }
-  # validates :bio, presence: true, length: { in: 10..280 }
+  validates :bio, presence: true, length: { in: 10..280 }
   validates :gender, presence: true
   enum gender: {
     other: 0,

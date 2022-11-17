@@ -2,6 +2,8 @@ class DoppelgangersController < ApplicationController
   before_action :set_doppelganger, only: %i[show edit update destroy]
 
   def index
+    # branch to verify condition if any filters are selected, if none, Doppelganger.all
+    # branch query from filters, apply to a Doppelganger.where
     @doppelgangers = Doppelganger.all
     @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|
       {
@@ -54,7 +56,7 @@ class DoppelgangersController < ApplicationController
   private
 
   def doppelganger_params
-    params.require(:doppelganger).permit(:name, :age, :location, :rate, :photo)
+    params.require(:doppelganger).permit(:name, :age, :address, :rate, :photo, :gender, :bio)
   end
 
   def set_doppelganger
