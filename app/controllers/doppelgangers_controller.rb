@@ -4,7 +4,12 @@ class DoppelgangersController < ApplicationController
   def index
     # branch to verify condition if any filters are selected, if none, Doppelganger.all
     # branch query from filters, apply to a Doppelganger.where
-    @doppelgangers = Doppelganger.all
+    # raise
+    if params[:location].present?
+      @doppelganger.where
+    else
+      @doppelgangers = Doppelganger.all
+    end
     @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|
       {
         lat: doppel.latitude,
