@@ -3,7 +3,7 @@ class DoppelgangersController < ApplicationController
 
   def index
     @doppelgangers = Doppelganger.all
-    @markers = @doppelgangers.geocoded.map do |doppel|
+    @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|
       {
         lat: doppel.latitude,
         lng: doppel.longitude,
