@@ -49,8 +49,6 @@ gem "sassc-rails"
 # Add faker to make seeds
 gem "faker"
 
-# Add geocoder for locating and map
-gem "geocoder"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -82,3 +80,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Add geocoder for locating and map
+gem "geocoder"

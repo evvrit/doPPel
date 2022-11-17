@@ -3,6 +3,11 @@ class DoppelgangersController < ApplicationController
 
   def index
     @doppelgangers = Doppelganger.all
+    @markers = @doppelgangers.geocoded.map do |doppel|
+      {
+        lat: doppel.latitude,
+        lng: doppel.longitude
+      }
   end
 
   def roster
