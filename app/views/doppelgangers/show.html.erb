@@ -7,8 +7,6 @@
       <div>
         <h1><%= @doppelganger.name %></h1>
         <p><%= @doppelganger.age %> years old</p>
-        <p>id: <%= @doppelganger.id %></p>
-        <p> in <%= @doppelganger.location %></p>
         <p> $ <%= @doppelganger.rate %> /hour </p>
         <h3> About Me </h3>
         <%= @doppelganger.bio %>
@@ -31,7 +29,7 @@
     </div>
   </div>
 
-  <div style="width: 100%; height: 600px;"
+  <div style="width: 100%; height: calc(100vh - 90px); position: sticky; top: 90px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

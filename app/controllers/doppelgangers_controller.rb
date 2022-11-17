@@ -18,6 +18,10 @@ class DoppelgangersController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = [{
+      lat: @doppelganger.latitude,
+      lng: @doppelganger.longitude
+    }]
   end
 
   def new
