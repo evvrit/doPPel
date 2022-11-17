@@ -1,4 +1,5 @@
-<div style="width: 100%; height: calc(100vh - 90px);"
+<br>
+<div style="width: 90%; height: 500px; font-size: 15px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -6,25 +7,23 @@
 
 <div class="cards">
   <% @doppelgangers.each do |doppelganger| %>
-    <div class="card-trip">
-      <% if  doppelganger.photo.key !=nil %>
-        <%= cl_image_tag doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
-      <% else %>
+      <div class="card-dg-index">
+        <% if  doppelganger.photo.key !=nil %>
+          <%= cl_image_tag doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
+        <% else %>
         <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
-      <% end %>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h2>
+          <% end %>
+        <div class="card-infos">
+          <div>
+            <h2><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h2>
+          </div>
+          <h3 class="card-pricing"><p><%= doppelganger.rate %>$CAD day</p></h3>
+          <% if doppelganger.user == current_user %>
+            <div class="my-doppelganger-icon">*yours</div>
+          <% end %>
         </div>
         <h3 class="card-pricing"><p><%= doppelganger.rate %>$CAD day</p></h3>
       </div>
     </div>
   <% end %>
 </div>
-
-<%# <div> %>
-  <%# <% @doppelgangers.where(:gender == 0).each do |doppelganger| %> %>
-    <%# <%= doppelganger.name %> %>
-    <%# <%= doppelganger.gender %> %>
-  <%# <% end %> %>
-<%# </div> %>

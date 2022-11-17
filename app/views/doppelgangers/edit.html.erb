@@ -3,7 +3,8 @@
   <%= simple_form_for @doppelganger do |f| %>
     <%= f.input :name %>
     <%= f.input :age %>
-    <%= f.input :location, collection: %w[Montreal Toronto Ottawa] %>
+    <%= f.input :bio %>
+    <%= f.input :address, label: "we are only servicing Ottawa, Montreal, Toronto." %>
     <%= f.input :rate %>
     <%= f.submit %>
   <% end %>

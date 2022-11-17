@@ -1,21 +1,29 @@
+
+  <br>
 <div class="container">
+  <% if Doppelganger.where(user: current_user) != [] %>
   <h1>Here is your roster</h1>
   <ul>
     <% @roster.each do |doppelganger| %>
-    <li>
-      <div class="photo">
-        <% if  doppelganger.photo.key !=nil %>
-          <%= cl_image_tag doppelganger.photo.key, width: 200, crop: :fill %>
-        <% else %>
-          <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px" />
-        <% end %>
+      <div class="card">
+          <div class="photo">
+            <% if  doppelganger.photo.key !=nil %>
+              <%= cl_image_tag doppelganger.photo.key, width: 200, crop: :fill %>
+            <% else %>
+              <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px" />
+            <% end %>
+          </div>
+          <div class="card-body">
+            <h5><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h5>
+            <p><%= doppelganger.age %></p>
+            <p><%= doppelganger.address %></p>
+            <p><%= doppelganger.rate %></p>
+            <p><%= doppelganger.bio %></p>
+          </div>
       </div>
-      <h4><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h1>
-      <p><%= doppelganger.age %></p>
-      <p><%= doppelganger.address %></p>
-      <p><%= doppelganger.rate %></p>
-      <p><%= doppelganger.bio %></p>
-    </li>
     <% end %>
   </ul>
+  <% else %>
+      <p>You do not have any doppelgangers in your roster.</p>
+  <% end %>
 </div>

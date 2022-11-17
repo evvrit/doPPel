@@ -2,18 +2,27 @@
   <% if @bookings.empty? %>
     <p> You have no bookings. </p>
   <% else %>
-    <ul>
-      <% @bookings.each do |booking| %>
-      <div class="booking_card">
-        <li>
-          <%= link_to "see details", booking_path(booking) %>
-          <%= booking.doppelganger.name %>,
-          <%= booking.address %>,
-          <%= booking.start_date.strftime('%b %e, %l:%M %p') %>,|
-        <%= booking.end_date.strftime('%b %e, %l:%M %p') %>|
-        </li>
+    <% @bookings.each do |booking| %>
+
+    <div class="card">
+
+      <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" class="card-img-top" />
+
+      <div class="card-body">
+
+        <h5 class="card-title"><%= booking.doppelganger.name %></h5>
+          <b>Address : </b> <%= booking.address %>
+          <br>
+          <b>From : </b><%= booking.start_date.strftime('%b %e, %l:%M %p') %>
+          <b>To : </b><%= booking.end_date.strftime('%b %e, %l:%M %p') %>
+
+          <%= link_to "See details", booking_path(booking), class: "button-53" %>
       </div>
-      <% end %>
+
+    </div>
+
+    <% end %>
+
     </ul>
   <% end %>
 </div>
