@@ -3,6 +3,13 @@ class DoppelgangersController < ApplicationController
 
   def index
     @doppelgangers = Doppelganger.all
+    @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|
+      {
+        lat: doppel.latitude,
+        lng: doppel.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {doppelganger: doppel})
+      }
+    end
   end
 
   def roster
@@ -11,6 +18,10 @@ class DoppelgangersController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = [{
+      lat: @doppelganger.latitude,
+      lng: @doppelganger.longitude
+    }]
   end
 
   def new
@@ -43,7 +54,7 @@ class DoppelgangersController < ApplicationController
   private
 
   def doppelganger_params
-    params.require(:doppelganger).permit(:name, :age, :location, :rate)
+    params.require(:doppelganger).permit(:name, :age, :location, :rate, :photo)
   end
 
   def set_doppelganger
