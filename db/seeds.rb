@@ -9,6 +9,7 @@ puts "making 12 fake doppelgangers"
 12.times do Doppelganger.create(
   name: Faker::FunnyName.two_word_name,
   age: rand(21..100),
+  gender: rand(1..3),
   location: %w[Montreal Toronto Ottawa].sample,
   rate: rand(20..500),
   bio: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
