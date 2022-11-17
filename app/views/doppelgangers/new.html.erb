@@ -7,6 +7,7 @@
         <%= f.input :address, label: "Street Address. *in Montreal, Ottawa, or Toronto." %>
         <%= f.input :bio, length: { in: 10..280 } %>
         <%= f.input :rate %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit %>
       <% end %>
     </div>

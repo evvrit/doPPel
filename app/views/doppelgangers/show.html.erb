@@ -1,12 +1,17 @@
+
 <div class="flex-container">
   <div class="container">
     <div class="doppelganger_info">
       <div class="photo">
-        <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px">
-      </div>
+        <% if  @doppelganger.photo.key !=nil %>
+          <%= cl_image_tag @doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
+        <% else %>
+          <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px" />
+        <% end %>
       <div>
         <h1><%= @doppelganger.name %></h1>
         <p><%= @doppelganger.age %> years old</p>
+        <p><%= @doppelganger.gender %></p>
         <p> $ <%= @doppelganger.rate %> /hour </p>
         <h3> About Me </h3>
         <%= @doppelganger.bio %>
@@ -32,5 +37,6 @@
   <div style="width: 100%; height: calc(100vh - 90px); position: sticky; top: 90px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>

@@ -16,7 +16,7 @@ end
 24.times do Doppelganger.create(
   name: Faker::FunnyName.two_word_name,
   age: rand(21..100),
-  # location: %w[Montreal Toronto Ottawa].sample,
+  gender: rand(1..3),
   address: build_address,
   rate: rand(20..500),
   bio: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
