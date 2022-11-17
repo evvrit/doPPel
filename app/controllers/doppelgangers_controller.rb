@@ -2,19 +2,29 @@ class DoppelgangersController < ApplicationController
   before_action :set_doppelganger, only: %i[show edit update destroy]
 
   def index
-    # branch to verify condition if any filters are selected, if none, Doppelganger.all
-    # branch query from filters, apply to a Doppelganger.where
+    attributes = params.slice("location", "age", "ethnicity", "height", "gender")
+    sql_query = <<~SQL
+      address ILIKE ?
+      SQL
+      AND ethnicity ILIKE ?
+      AND gender = ?
     # raise
-    if params[:location].present?
-      @doppelganger.where
-    else
+    if attributes.values.all?("")
       @doppelgangers = Doppelganger.all
+    else
+      @doppelgangers = Doppelganger.where(sql_query, attributes[:location], attributes[:ethnicity], attributes[:gender].to_i)
     end
+    # if params[:gender] == "select"
+    #   @doppelgangers = Doppelganger.all
+    # else
+    #   @doppelgangers = Doppelganger.filter(params[:gender])
+    # end
+
     @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|
       {
         lat: doppel.latitude,
         lng: doppel.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {doppelganger: doppel})
+        info_window: render_to_string(partial: "info_window", locals: { doppelganger: doppel })
       }
     end
   end
@@ -61,7 +71,7 @@ class DoppelgangersController < ApplicationController
   private
 
   def doppelganger_params
-    params.require(:doppelganger).permit(:name, :age, :address, :rate, :photo, :gender, :bio)
+    params.require(:doppelganger).permit(:name, :age, :address, :rate, :photo, :gender, :bio, :ethnicity, :height)
   end
 
   def set_doppelganger
