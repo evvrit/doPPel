@@ -83,3 +83,6 @@ end
 
 # Add geocoder for locating and map
 gem "geocoder"
+
+# Add PG Search for search bar
+gem "pg_search"
