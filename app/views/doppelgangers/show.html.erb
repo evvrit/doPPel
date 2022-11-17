@@ -1,6 +1,5 @@
 
 <div class="flex-container">
-  <div class="container">
     <div class="doppelganger_info">
       <div class="photo">
         <% if  @doppelganger.photo.key !=nil %>
@@ -31,7 +30,6 @@
         <%= render 'doppelgangers/booking_form' %>
       <% end %>
     </div>
-  </div>
 
   <div style="width: 100%; height: calc(100vh - 90px); position: sticky; top: 90px;"
     data-controller="map"
