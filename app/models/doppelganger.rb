@@ -13,7 +13,7 @@ class Doppelganger < ApplicationRecord
   validates :bio, presence: true, length: { in: 10..280 }
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_synopsis,
+  pg_search_scope :search_by_name_and_address_and_bio,
     against: [ :name, :address, :bio ],
     using: {
       tsearch: { prefix: true }
