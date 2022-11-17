@@ -7,7 +7,9 @@ class DoppelgangersController < ApplicationController
       {
         lat: doppel.latitude,
         lng: doppel.longitude
+        info_window: render_to_string(partial: "info_window", locals: {doppelganger: doppel})
       }
+    end
   end
 
   def roster
