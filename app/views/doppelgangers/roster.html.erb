@@ -1,6 +1,8 @@
-<h1>Here is your roster</h1>
+
   <br>
 <div class="container">
+  <% if Doppelganger.where(user: current_user) != [] %>
+  <h1>Here is your roster</h1>
   <ul>
     <% @roster.each do |doppelganger| %>
       <div class="card">
@@ -21,4 +23,7 @@
       </div>
     <% end %>
   </ul>
+  <% else %>
+      <p>You do not have any doppelgangers in your roster.</p>
+  <% end %>
 </div>

@@ -18,7 +18,6 @@
     </div>
 
     <div class="links">
-      <%= link_to "Back", :back%>
       <% if @doppelganger.user == current_user %>
         <%= link_to "edit", edit_doppelganger_path(@doppelganger) %>
         <%= link_to "delete", doppelganger_path(@doppelganger),

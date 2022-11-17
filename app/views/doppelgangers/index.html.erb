@@ -18,6 +18,9 @@
             <h2><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h2>
           </div>
           <h3 class="card-pricing"><p><%= doppelganger.rate %>$CAD day</p></h3>
+          <% if doppelganger.user == current_user %>
+            <div class="my-doppelganger-icon">*yours</div>
+          <% end %>
         </div>
       </div>
   <% end %>
