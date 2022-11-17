@@ -9,8 +9,8 @@
   grid-gap: 50px;
 }
 
-.card-trip {
-  border-radius: 5%;
+.card-dg-index {
+  // border-radius: 5%;
   height: 280px;
   width: 200px;
   overflow: hidden;
@@ -18,14 +18,14 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.card-trip > img {
+.card-dg-index > img {
   height: 200px;
   width: 200px;
   object-fit: cover;
 }
 
 
-.card-trip h2 {
+.card-dg-index h2 {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 12px;
@@ -33,7 +33,7 @@
   margin: 0;
 }
 
-.card-trip p {
+.card-dg-index p {
   padding-left: 2px;
   padding-right: 2px;
   font-size: 15px;
@@ -48,7 +48,7 @@
 
 
 
-.card-trip .card-trip-infos {
+.card-dg-index .card-infos {
   text-align: left;
   padding: 1px;
   // display: flex;
@@ -57,7 +57,7 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.card-infos .card-trip-user {
   position: absolute;
   right: 16px;
   top: -20px;
