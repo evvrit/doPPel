@@ -43,7 +43,7 @@ class DoppelgangersController < ApplicationController
   private
 
   def doppelganger_params
-    params.require(:doppelganger).permit(:name, :age, :location, :rate)
+    params.require(:doppelganger).permit(:name, :age, :location, :rate, :photo)
   end
 
   def set_doppelganger

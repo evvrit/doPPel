@@ -1,7 +1,7 @@
 <div class="container">
   <div class="doppelganger_info">
-    <div class="photo">
-      <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px">
+    <div class="photo" style="background-image url(<%= cl_image_path @doppelganger.photo.key%>)">
+      <%# <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px"> %>
     </div>
     <div>
       <h1><%= @doppelganger.name %></h1>
