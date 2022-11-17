@@ -16,7 +16,15 @@
           <b>From : </b><%= booking.start_date.strftime('%b %e, %l:%M %p') %>
           <b>To : </b><%= booking.end_date.strftime('%b %e, %l:%M %p') %>
 
-          <h5><%= booking.status %></h5>
+          <% if booking.status == "pending" %>
+            <span class="badge text-bg-secondary"><%= booking.status %></span>
+          <% elsif booking.status == "accepted" %>
+            <span class="badge text-bg-success"><%= booking.status %></span>
+          <% elsif booking.status == "rejected" %>
+            <span class="badge text-bg-danger"><%= booking.status %></span>
+          <% elsif booking.status == "canceled" %>
+            <span class="badge text-bg-warning"><%= booking.status %></span>
+          <% end %>
 
           <%= link_to "See details", booking_path(booking), class: "button-53" %>
       </div>
