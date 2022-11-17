@@ -1,4 +1,5 @@
 <div class="container">
+  <% if Doppelganger.where(user: current_user) != [] %>
   <h1>Here is your roster</h1>
   <ul>
     <% @roster.each do |doppelganger| %>
@@ -12,10 +13,13 @@
       </div>
       <h4><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h1>
       <p><%= doppelganger.age %></p>
-      <p><%= doppelganger.location %></p>
+      <p><%= doppelganger.address %></p>
       <p><%= doppelganger.rate %></p>
       <p><%= doppelganger.bio %></p>
     </li>
     <% end %>
   </ul>
+  <% else %>
+      <p>You do not have any doppelgangers in your roster.</p>
+  <% end %>
 </div>
