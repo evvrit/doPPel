@@ -6,7 +6,7 @@ class DoppelgangersController < ApplicationController
     @markers = @doppelgangers.geocoded.map do |doppel|
       {
         lat: doppel.latitude,
-        lng: doppel.longitude
+        lng: doppel.longitude,
         info_window: render_to_string(partial: "info_window", locals: {doppelganger: doppel})
       }
     end
