@@ -1,3 +1,8 @@
+<div style="width: 100%; height: calc(100vh - 90px);"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <div class="cards">
   <% @doppelgangers.each do |doppelganger| %>
       <div class="card-trip">
