@@ -16,6 +16,8 @@
           <b>From : </b><%= booking.start_date.strftime('%b %e, %l:%M %p') %>
           <b>To : </b><%= booking.end_date.strftime('%b %e, %l:%M %p') %>
 
+          <h5><%= booking.status %></h5>
+
           <%= link_to "See details", booking_path(booking), class: "button-53" %>
       </div>
 

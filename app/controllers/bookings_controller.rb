@@ -31,7 +31,6 @@ class BookingsController < ApplicationController
   end
 
   def set_status
-    # raise
     case params[:status].to_i
     when 1
       @booking.accepted!
