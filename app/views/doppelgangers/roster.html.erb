@@ -4,7 +4,6 @@
   <ul>
     <% @roster.each do |doppelganger| %>
       <div class="card">
-        <li>
           <div class="photo">
             <% if  doppelganger.photo.key !=nil %>
               <%= cl_image_tag doppelganger.photo.key, width: 200, crop: :fill %>
@@ -15,11 +14,10 @@
           <div class="card-body">
             <h5><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h5>
             <p><%= doppelganger.age %></p>
-            <p><%= doppelganger.location %></p>
+            <p><%= doppelganger.address %></p>
             <p><%= doppelganger.rate %></p>
             <p><%= doppelganger.bio %></p>
           </div>
-        </li>
       </div>
     <% end %>
   </ul>
