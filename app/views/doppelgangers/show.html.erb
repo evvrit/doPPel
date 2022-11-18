@@ -1,47 +1,49 @@
-<div class="flex-container">
-    <div class="doppelganger_info">
- <br>
-<div class="show_container">
-  <div class="cardshow absolute-cardshow" style="margin-right: 350px;">
-    <div class="card-img-top" >
-        <% if  @doppelganger.photo.key !=nil %>
-          <%= cl_image_tag @doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
-        <% else %>
-        <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px;border-radius: 10px;"/>
-        <% end %>
-    </div>
-    <div class="card-body-show abs-card-body-show-booking">
-      <h1><%= @doppelganger.name %></h1> <br>
-        <p><%= @doppelganger.age %> years old</p>
-        <p><%= @doppelganger.gender %></p>
-      <p><b> $ <%= @doppelganger.rate %>/day </b></p>
-      </div>
-    </div>
-
-
-</div>
-      <div class="links absolute-btn-show">
-      <% if @doppelganger.user == current_user %>
-          <div class="my-doppelganger-icon abs-icon-show"><div class="my-doppelganger-icon abs-icon-index"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1668787116/Screen_Shot_2022-11-18_at_10.58.32_AM_yz3ofh.png" alt="icon" style="width: 150px"></div></div><br>
-        <%= link_to "delete", doppelganger_path(@doppelganger),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-53" %>
-            <%= link_to "edit", edit_doppelganger_path(@doppelganger), class: "button-53" %>
-      <% end %>
-    </div>
-</div>
-
-<div class="about absolute-bio-show-booking container-show">
-      <h3> About Me </h3><br>
-      <%= @doppelganger.bio %>
-  </div>
-
-      <div class="abs-booking-form">
-      <% if @doppelganger.user_id != current_user.id %>
-        <%= render 'doppelgangers/booking_form' %>
-      <% end %>
-    </div>
 
   <% if Doppelganger.geocoded.include?(@doppelganger) %>
     <%= render "doppelgangers/map" %>
   <% end %>
+
+
+<div class="doppelganger_info" style="margin-top: 10px;">
+  <br>
+  <div class="show_container" style="margin-top: 200px;">
+    <div class="cardshow absolute-cardshow" style="margin-right: 350px;">
+      <div class="card-img-top" >
+          <% if  @doppelganger.photo.key !=nil %>
+            <%= cl_image_tag @doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
+          <% else %>
+          <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px;border-radius: 10px;"/>
+          <% end %>
+      </div>
+      <div class="card-body-show abs-card-body-show-booking">
+        <h1><%= @doppelganger.name %></h1> <br>
+          <p><%= @doppelganger.age %> years old</p>
+          <p><%= @doppelganger.gender %></p>
+        <p><b> $ <%= @doppelganger.rate %>/day </b></p>
+        </div>
+      </div>
+
+
+    </div>
+        <div class="links absolute-btn-show">
+        <% if @doppelganger.user == current_user %>
+            <div class="my-doppelganger-icon abs-icon-show"><div class="my-doppelganger-icon abs-icon-index"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1668787116/Screen_Shot_2022-11-18_at_10.58.32_AM_yz3ofh.png" alt="icon" style="width: 150px"></div></div><br>
+          <%= link_to "delete", doppelganger_path(@doppelganger),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button-53" %>
+              <%= link_to "edit", edit_doppelganger_path(@doppelganger), class: "button-53" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="about absolute-bio-show-booking container-show">
+        <h3> About Me </h3><br>
+        <%= @doppelganger.bio %>
+    </div>
+
+      <div class="abs-booking-form">
+        <% if @doppelganger.user_id != current_user.id %>
+          <%= render 'doppelgangers/booking_form' %>
+        <% end %>
+      </div>
+  </div>
 </div>
