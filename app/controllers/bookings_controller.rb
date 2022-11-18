@@ -3,7 +3,9 @@ class BookingsController < ApplicationController
   before_action :set_doppelganger, only: %i[new create]
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @outgoing_bookings = Booking.where(user_id: current_user.id)
+    query = "bookings.doppelganger.user = ?"
+    @incoming_bookings = Booking.joins(:doppelgangers).where(query, current_user)
   end
 
   def show
