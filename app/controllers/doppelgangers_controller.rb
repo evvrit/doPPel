@@ -2,22 +2,18 @@ class DoppelgangersController < ApplicationController
   before_action :set_doppelganger, only: %i[show edit update destroy]
 
   def index
-    attributes = params.slice("location", "age", "ethnicity", "height", "gender")
-    sql_query = <<~SQL
-      address ILIKE ?
-      SQL
-      AND ethnicity ILIKE ?
-      AND gender = ?
-    # raise
-    if attributes.values.all?("")
-      @doppelgangers = Doppelganger.all
-    else
-      @doppelgangers = Doppelganger.where(sql_query, attributes[:location], attributes[:ethnicity], attributes[:gender].to_i)
-    end
-    # if params[:gender] == "select"
+    @doppelgangers = Doppelganger.all
+    # attributes = params.slice("location", "age", "ethnicity", "height", "gender")
+    # sql_query = <<~SQL
+    #   address ILIKE ?
+    #   SQL
+    #   AND ethnicity ILIKE ?
+    #   AND gender = ?
+    # # raise
+    # if attributes.values.all?("")
     #   @doppelgangers = Doppelganger.all
     # else
-    #   @doppelgangers = Doppelganger.filter(params[:gender])
+    #   @doppelgangers = Doppelganger.where(sql_query, attributes[:location], attributes[:ethnicity], attributes[:gender].to_i)
     # end
 
     @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|

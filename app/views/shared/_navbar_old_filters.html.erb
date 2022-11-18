@@ -4,123 +4,42 @@
       <%= image_tag "https://res.cloudinary.com/dytbz32gy/image/upload/v1668532874/Screen_Shot_2022-11-14_at_9.17.22_PM_anbb8y.png" %>
     <% end %>
 
-  <div class="all-filters">
-    <div class="filters">
-      <form>
-        <div class="form-group">
-          <label for="gender">Gender</label>
-          <select class="form-control" id="sel1">
-            <option>Select a gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </form>
+    <div class="clickable">
+      male
+    </div>
+    <div class="clickable">
+      female
     </div>
 
-    <div class="filters">
-      <form>
-        <div class="form-group">
-          <label for="age">Age</label>
-          <select class="form-control" id="sel1">
-            <option>Select a group age</option>
-            <option>21-25</option>
-            <option>26-29</option>
-            <option>30-34</option>
-            <option>35-39</option>
-            <option>40-44</option>
-            <option>45-49</option>
-            <option>50-54</option>
-          </select>
-        </div>
-      </form>
-    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="filters">
-      <form>
-        <div class="form-group">
-          <label for="ethnicity">Ethnicity</label>
-          <select class="form-control" id="sel1">
-            <option>Select an ethnicity</option>
-            <option>American Indigenous</option>
-            <option>Black/African Descent</option>
-            <option>East Asian</option>
-            <option>Hispanic/Latino</option>
-            <option>Middle Eastern</option>
-            <option>Pacific Islander</option>
-            <option>South Asian</option>
-            <option>Southeast Asian</option>
-            <option>White/Caucasian</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </form>
-    </div>
-
-      <div class="filters">
-      <form>
-        <div class="form-group">
-          <label for="height">Height</label>
-          <select class="form-control" id="sel1">
-            <option>Select a range</option>
-            <option>< 5'1</option>
-            <option>5'1 - 5'3</option>
-            <option>5'4 - 5'6</option>
-            <option>5'7 - 5'9</option>
-            <option>5'10 - 6'0</option>
-            <option>6'1 - 6'2</option>
-            <option>6'3 - 6'5</option>
-            <option> > 6'5</option>
-          </select>
-        </div>
-      </form>
-    </div>
-
-      <div class="filters">
-      <form>
-        <div class="form-group">
-          <label for="location">Location</label>
-          <select class="form-control" id="sel1">
-            <option>Select an area</option>
-            <option>Montréal</option>
-            <option>Ottawa</option>
-            <option>Toronto</option>
-          </select>
-        </div>
-      </form>
-    </div>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <% if user_signed_in? %>
-            <li class="nav-item active">
-            </li>
-            <li class="nav-item">
-              <%# <%= link_to "Bookings", bookings_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item dropdown">
-              <%= image_tag "https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Homepage", "/", class: "dropdown-item" %>
-                <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
-                <%= link_to "Add a new doppelganger", new_doppelganger_path, class: "dropdown-item"%>
-                <%= link_to "My Roster", my_roster_path, class: "dropdown-item" %>
-                <div class="dropdown-divider"></div>
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+          </li>
+          <li class="nav-item">
+            <%# <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Homepage", "/", class: "dropdown-item" %>
+              <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
+              <%= link_to "Add a new doppelganger", new_doppelganger_path, class: "dropdown-item"%>
+              <%= link_to "My Roster", my_roster_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
