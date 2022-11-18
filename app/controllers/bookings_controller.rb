@@ -4,8 +4,10 @@ class BookingsController < ApplicationController
 
   def index
     @outgoing_bookings = Booking.where(user_id: current_user.id)
-    query = "bookings.doppelganger.user = ?"
-    @incoming_bookings = Booking.joins(:doppelgangers).where(query, current_user)
+    query = <<~SQL
+        bookings.doppelganger.user = ?
+      SQL
+    @incoming_bookings = Booking.joins(:doppelganger, :user).where(query, current_user)
   end
 
   def show
