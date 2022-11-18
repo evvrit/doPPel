@@ -1,12 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show destroy set_status]
+  before_action :set_booking, only: %i[destroy set_status]
   before_action :set_doppelganger, only: %i[new create]
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
-  end
-
-  def show
+    @outgoing_bookings = Booking.where(user_id: current_user.id)
+    @incoming_bookings = current_user.agent_bookings
   end
 
   def new
@@ -19,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = 0
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render 'doppelgangers/show', status: :unprocessable_entity
     end
@@ -31,7 +29,6 @@ class BookingsController < ApplicationController
   end
 
   def set_status
-    # raise
     case params[:status].to_i
     when 1
       @booking.accepted!
@@ -42,7 +39,7 @@ class BookingsController < ApplicationController
     else
       ""
     end
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   end
 
   private
