@@ -1,8 +1,7 @@
-
-  <br>
-<div class="container">
+<div class="container-roster">
   <% if Doppelganger.where(user: current_user) != [] %>
-  <h1>Here is your roster</h1>
+  <h1><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1668797657/Screen_Shot_2022-11-18_at_1.54.10_PM_zmlzlu.png" alt="my roster head" style="
+    width: 600px;"></h1>
   <ul>
     <% @roster.each do |doppelganger| %>
       <div class="card">
@@ -13,11 +12,11 @@
               <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px" />
             <% end %>
           </div>
-          <div class="card-body">
+          <div class="card-body-roster">
             <h5><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h5>
             <p><%= doppelganger.age %></p>
             <p><%= doppelganger.address %></p>
-            <p><%= doppelganger.rate %></p>
+            <p>$<%= doppelganger.rate %>/day</p>
             <p><%= doppelganger.bio %></p>
           </div>
       </div>
