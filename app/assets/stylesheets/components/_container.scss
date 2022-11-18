@@ -3,29 +3,9 @@
   justify-content: center;
   align-items: center;
   margin-top:100px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   flex-direction: column;
-  padding-bottom: 50px;
-}
-
-.container-roster {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:60px;
-  margin-bottom: 50px;
-  flex-direction: column;
-  padding-bottom: 50px;
-}
-
-.container-roster-bookings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:60px;
-  margin-bottom: 50px;
-  flex-direction: column;
-  padding-bottom: 50px;
+  padding-bottom: 200px;
 }
 
 .doppelganger_info {
@@ -35,17 +15,13 @@
   }
 }
 
-.container-show {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:100px;
-  margin-bottom: 100px;
-  flex-direction: column;
-  padding-bottom: 100px;
-  text-align: justify;
-}
-
-.container-show h3 {
-  color: #3DDAB7;
-}
+// .container_roster {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-top: 50px;
+//   flex-direction: column;
+//   padding-bottom: 200px;
+//   display: grid;
+//   grid-template-columns: repeat(6, 1fr);
+// }
