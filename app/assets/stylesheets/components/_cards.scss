@@ -17,12 +17,28 @@
   margin-top: 1px;
 }
 
+.card-body-roster {
+  height: 197px;
+  overflow:auto;
+  margin-bottom: 1px;
+  margin-top: 1px;
+  margin-left: 20px;
+  padding-top: 5px;
+}
+
+.card-body-roster h5{
+  color :rgba(28, 214, 192, 0.922)
+}
+
 .card-dg-index {
+  // display: flex;
+  // justify-content: center;
   height: 280px;
   width: 254px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(18, 141, 127, 0.286);
+  border-radius: 7px;
 }
 
 .card-dg-index > img {
@@ -57,7 +73,7 @@
 
 .card-dg-index .card-infos {
   text-align: left;
-  padding: 1px;
+  padding: 16px;
   // display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -71,10 +87,30 @@
   width: 40px;
 }
 
-.my-doppelganger-icon {
-  padding: 10px;
-  background-color: orange;
+.card-infos h2 {
+  font-size: 20px;
 }
+
+.card-infos p {
+  font-size: 15px ;
+  color: #9cafac;
+}
+
+.link-dg-index-card {
+  color: #3DDAB7;
+  text-decoration: none;
+}
+
+.link-dg-index-card:hover {
+  color: #107962;
+}
+
+// .my-doppelganger-icon {
+  // padding: 10px;
+  // background-color: rgb(111, 239, 199);
+  // width: 50px;
+  // height: 50px;
+// }
 
 
 // Smallest device

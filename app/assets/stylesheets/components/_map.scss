@@ -7,6 +7,18 @@
   height: auto;
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: rgb(182, 182, 182);
+}
+
+.mapboxgl-popup-content a {
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 19px;
+  text-decoration: none !important;
+  color: rgb(84, 226, 183) !important;
 }
 
 .flex-container {
