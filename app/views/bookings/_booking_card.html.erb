@@ -3,22 +3,36 @@
 
   <div class="card-body">
 
-    <h5 class="card-title"><%= booking.doppelganger.name %></h5>
+    <div style="display:flex; justify-content: space-between;"
+      <h5 class="card-title"><%= booking.doppelganger.name %></h5>
+      <% if booking.status == "pending" %>
+        <span class="badge text-bg-secondary"><%= booking.status %></span>
+      <% elsif booking.status == "accepted" %>
+        <span class="badge text-bg-success"><%= booking.status %></span>
+      <% elsif booking.status == "rejected" %>
+        <span class="badge text-bg-danger"><%= booking.status %></span>
+      <% elsif booking.status == "canceled" %>
+        <span class="badge text-bg-warning"><%= booking.status %></span>
+      <% end %>
+    </div>
+
     <b>Address : </b> <%= booking.address %>
     <br>
     <b>From : </b><%= booking.start_date.strftime('%b %e, %l:%M %p') %>
+    <br>
     <b>To : </b><%= booking.end_date.strftime('%b %e, %l:%M %p') %>
+    <br>
 
-    <% if booking.status == "pending" %>
-      <span class="badge text-bg-secondary"><%= booking.status %></span>
-    <% elsif booking.status == "accepted" %>
-      <span class="badge text-bg-success"><%= booking.status %></span>
-    <% elsif booking.status == "rejected" %>
-      <span class="badge text-bg-danger"><%= booking.status %></span>
-    <% elsif booking.status == "canceled" %>
-      <span class="badge text-bg-warning"><%= booking.status %></span>
+    <% if booking.doppelganger.user == current_user && booking.status == "pending" %>
+      <div>
+        <%= link_to "accept",  set_status_path(booking, status: 1), class: "button-53" %>
+        <%= link_to "reject",  set_status_path(booking, status: 2), class: "button-53" %>
+      </div>
     <% end %>
-
-    <%= link_to "See details", booking_path(booking), class: "button-53" %>
+    <% if booking.user == current_user && booking.status == "pending" %>
+      <div>
+        <%= link_to "cancel",  set_status_path(booking, status: 3), class: "button-53" %>
+      </div>
+    <% end %>
   </div>
 </div>

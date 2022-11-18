@@ -1,11 +1,10 @@
-<div class="container">
+<div style="display: flex; justify-content: space-around;">
 
   <div class="booking-list-container">
-    <h2>Your bookings</h3>
     <% if @outgoing_bookings.empty? %>
       <p> You have not made any bookings. </p>
     <% else %>
-      <h3>Your rental bookings</h3>
+      <h3>Your bookings</h3>
       <% @outgoing_bookings.each do |booking| %>
         <%= render 'bookings/booking_card', booking: booking %>
       <% end %>
