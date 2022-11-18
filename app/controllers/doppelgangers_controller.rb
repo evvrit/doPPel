@@ -3,17 +3,27 @@ class DoppelgangersController < ApplicationController
 
   def index
     @doppelgangers = Doppelganger.all
-    # attributes = params.slice("location", "age", "ethnicity", "height", "gender")
+    # @attributes = params.slice("location", "age", "ethnicity", "height", "gender")
     # sql_query = <<~SQL
-    #   address ILIKE ?
-    #   SQL
-    #   AND ethnicity ILIKE ?
+    #   address @@ ?
+    #   AND ethnicity @@ ?
     #   AND gender = ?
-    # # raise
-    # if attributes.values.all?("")
+    # SQL
+    # raise
+
+    # location_query = "address @@ ?"
+    # ethnicity_query = "ethnicity @@ ?"
+    # gender_query = "gender = ?
+
+    # if @attributes.values.all?("")
     #   @doppelgangers = Doppelganger.all
     # else
+    #   @attributes.reject! { |_key, value| value == "" }
+
+    #   p @attributes.map { |key, value| key == :gender ? value.to_i : value }
+
     #   @doppelgangers = Doppelganger.where(sql_query, attributes[:location], attributes[:ethnicity], attributes[:gender].to_i)
+    #   # @doppelgangers = Doppelganger.where(sql_query, attributes[:location])#, attributes[:ethnicity], attributes[:gender].to_i)
     # end
 
     @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|

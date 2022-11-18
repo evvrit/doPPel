@@ -5,9 +5,9 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div class="cards">
+<div class="cards" id="doppelgangers_cards">
   <% @doppelgangers.each do |doppelganger| %>
-      <div class="card-dg-index">
+      <div class="card-dg-index" data-location="<%= doppelganger.address.split.last %>">
         <% if  doppelganger.photo.key !=nil %>
           <%= cl_image_tag doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
         <% else %>

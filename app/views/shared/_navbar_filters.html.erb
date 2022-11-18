@@ -4,14 +4,13 @@
       <%= image_tag "https://res.cloudinary.com/dytbz32gy/image/upload/v1668532874/Screen_Shot_2022-11-14_at_9.17.22_PM_anbb8y.png" %>
     <% end %>
 
-    <div class="filters">
+    <div class="filters" data-controller="navbar">
       <%= form_with url: root_path, method: :get, class: "d-flex" do |form| %>
-        <%= form.select :location, ["montreal", "Ottawa", "Toronto"], include_blank: true %>
-        <%= form.select :age, ["21-25", "25-29", "30-34", "35-39", "40-44", "45-49", "50-100"], include_blank: true %>
-        <%= form.select :ethnicity, ["American Indigenous", "Black/African Descent", "East Asian", "Hispainic/Latino", "Middle Eastern", "Pacific Islander", "South ASian", "Southeast Asian", "White/Caucasian"], include_blank: true %>
-        <%= form.select :height, ["< 5'", "5'1-5'3", "5'4-5'6", "5'7-6'0", "6'1-6'2", "6'3-6'5", "> 6'5"], include_blank: true %>
-        <%= form.select :gender, [["Male", 1], ["Female", 2], ["Nonbinary", 3]], include_blank: true %>
-        <%= form.submit "Filter" %>
+        <%= form.select :location, ["montreal", "Ottawa", "Toronto"], include_blank: true, input_html: {data: { navbar_target: 'location', action: 'change->navbar#select' } }%>
+        <%= form.select :age, ["21-25", "25-29", "30-34", "35-39", "40-44", "45-49", "50-100"], include_blank: true, data: { navbar_target: :age} %>
+        <%= form.select :ethnicity, ["American Indigenous", "Black/African Descent", "East Asian", "Hispainic/Latino", "Middle Eastern", "Pacific Islander", "South Asian", "Southeast Asian", "White/Caucasian"], include_blank: true, data: { navbar_target: :ethnicity} %>
+        <%= form.select :height, ["< 5'", "5'1-5'3", "5'4-5'6", "5'7-6'0", "6'1-6'2", "6'3-6'5", "> 6'5"], include_blank: true, data: { navbar_target: :height} %>
+        <%= form.select :gender, [["Male", 1], ["Female", 2], ["Nonbinary", 3]], include_blank: true, data: { navbar_target: :gender} %>
       <% end %>
     </div>
 
