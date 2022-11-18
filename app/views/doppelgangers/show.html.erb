@@ -1,4 +1,5 @@
 
+
   <% if Doppelganger.geocoded.include?(@doppelganger) %>
     <%= render "doppelgangers/map" %>
   <% end %>
@@ -46,4 +47,42 @@
         <% end %>
       </div>
   </div>
+
+<div class="flex-container">
+    <div class="doppelganger_info">
+      <div class="photo">
+        <% if  @doppelganger.photo.key !=nil %>
+          <%= cl_image_tag @doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
+        <% else %>
+          <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" style="width: 200px" />
+        <% end %>
+      <div>
+        <h1><%= @doppelganger.name %></h1>
+        <p><%= @doppelganger.age %> years old</p>
+        <p><%= @doppelganger.gender %></p>
+        <p> $ <%= @doppelganger.rate %> /hour </p>
+        <h3> About Me </h3>
+        <%= @doppelganger.bio %>
+      </div>
+    </div>
+
+    <div class="links">
+      <% if @doppelganger.user == current_user %>
+        <div class="my-doppelganger-icon">!</div>
+        <%= link_to "edit", edit_doppelganger_path(@doppelganger) %>
+        <%= link_to "delete", doppelganger_path(@doppelganger),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
+
+    <div>
+      <% if @doppelganger.user_id != current_user.id %>
+        <%= render 'doppelgangers/booking_form' %>
+      <% end %>
+    </div>
+
+  <% if Doppelganger.geocoded.include?(@doppelganger) %>
+    <%= render "doppelgangers/map" %>
+  <% end %>
+
 </div>
