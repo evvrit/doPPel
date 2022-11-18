@@ -1,12 +1,11 @@
-<div class="container">
-<p> Edit <%= @doppelganger.name %></p>
+<div class="container"
+<p> edit <%= @doppelganger.name %>, doppelganger id. <%= @doppelganger.id %></p>
   <%= simple_form_for @doppelganger do |f| %>
     <%= f.input :name %>
     <%= f.input :age %>
     <%= f.input :bio %>
-    <%= f.input :address, label: "We are only servicing Ottawa, Montreal, Toronto." %>
+    <%= f.input :address, label: "we are only servicing Ottawa, Montreal, Toronto." %>
     <%= f.input :rate %>
-    <br>
-    <%= f.submit "Update your doppelganger", class: "button-53", style: "font-size: 13px; font-weight: 100;" %>
+    <%= f.submit %>
   <% end %>
 </div>
