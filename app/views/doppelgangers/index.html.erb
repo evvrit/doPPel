@@ -11,11 +11,11 @@
           <% end %>
         <div class="card-infos">
           <div>
-            <h2><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h2>
+            <h2><%= link_to doppelganger.name, doppelganger_path(doppelganger), class: "link-dg-index-card" %></h2>
           </div>
-          <h3 class="card-pricing"><p><%= doppelganger.rate %>$CAD day</p></h3>
+          <p><%= doppelganger.rate %>$CAD day</p>
           <% if doppelganger.user == current_user %>
-            <div class="my-doppelganger-icon">!</div>
+            <div class="my-doppelganger-icon abs-icon-index"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1668787116/Screen_Shot_2022-11-18_at_10.58.32_AM_yz3ofh.png" alt="icon" style="width: 90px"></div>
           <% end %>
         </div>
       </div>

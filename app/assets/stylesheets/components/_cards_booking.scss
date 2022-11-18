@@ -34,4 +34,27 @@
   // width: 1000px;
   padding: 10px;
   text-justify: center;
+
+  text-align: auto;
+  ;
+}
+
+.card-body-show {
+  // height: 500px;
+  overflow:auto;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.card-body-show h1 {
+font-size: 30px;
+}
+.show_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about {
+  width: 1000px;
+  margin: 0 auto;
 }
