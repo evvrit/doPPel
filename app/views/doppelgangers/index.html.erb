@@ -1,16 +1,21 @@
 <div class="cards" id="doppelgangers_cards">
   <% @doppelgangers.each do |doppelganger| %>
       <div class="card-dg-index" data-location="<%= doppelganger.address.split.last %>">
+        <%= link_to doppelganger_path(doppelganger) do %>
+          <span class="doppelganger-show-link"></span>
+        <% end %>
         <% if  doppelganger.photo.key !=nil %>
           <%= cl_image_tag doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
         <% else %>
         <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
           <% end %>
         <div class="card-infos">
-          <div>
-            <h2><%= link_to doppelganger.name, doppelganger_path(doppelganger) %></h2>
+          <div class="card-name">
+            <h2><%= doppelganger.name %></h2>
           </div>
-          <h3 class="card-pricing"><p><%= doppelganger.rate %>$CAD day</p></h3>
+          <div class="card-pricing">
+            <h3><%= "#{doppelganger.rate}$ CAD/hour" %></h3>
+          </div>
           <% if doppelganger.user == current_user %>
             <div class="my-doppelganger-icon">!</div>
           <% end %>
