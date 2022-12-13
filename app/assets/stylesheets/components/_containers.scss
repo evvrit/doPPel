@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:100px;
+  margin-bottom: 100px;
+  padding-bottom: 200px;
+}
+
+.show-container {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: space-between;
+  gap: 50px
+}
+
+.booking-container {
+  border: 1px solid $teal;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  position: fixed;
+}
