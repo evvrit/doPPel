@@ -1,27 +1,44 @@
 require "faker"
 
-puts "cleaning the DB of doppelgangers..."
+puts "cleaning the DB of users and doppelgangers..."
 Doppelganger.destroy_all
+User.destroy_all
 puts "DB is clean!"
 
 puts "making 24 fake doppelgangers..."
 
-def build_address
-  num = rand(10..100)
-  street = %w[Papineau Laurier Victoria King Queen].sample
-  city = %w[Montreal Toronto Ottawa].sample
-  return num.to_s + " " + street + ", " + city
+User.create(
+  email: "a@a.a",
+  password: "secret",
+  first_name: "Tommy",
+  last_name: "Jensen"
+)
+
+24.times do User.create(
+  email: "#{Faker::Games::Pokemon.name}@doppel.com",
+  password: "secret",
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name
+)
 end
 
-24.times do Doppelganger.create(
-  name: Faker::FunnyName.two_word_name,
-  age: rand(21..100),
-  gender: rand(1..3),
-  address: build_address,
-  rate: rand(20..500),
-  bio: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
-  user: User.all.sample
-)
+# def build_address
+#   num = rand(10..100)
+#   street = %w[Papineau Laurier Victoria King Queen].sample
+#   city = %w[Montreal Toronto Ottawa].sample
+#   return num.to_s + " " + street + ", " + city
+# end
+
+User.all.each do |user|
+  Doppelganger.create(
+    name: "#{user.first_name} #{user.last_name}",
+    age: rand(21..100),
+    gender: rand(1..3),
+    address: Faker::Address.full_address,
+    rate: rand(20..500),
+    bio: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
+    user: user
+  )
 end
 
 # 20.times do Booking.new(
