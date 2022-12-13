@@ -1,6 +1,3 @@
-<br>
-<%= render "doppelgangers/map" %>
-
 <div class="cards" id="doppelgangers_cards">
   <% @doppelgangers.each do |doppelganger| %>
       <div class="card-dg-index" data-location="<%= doppelganger.address.split.last %>">
