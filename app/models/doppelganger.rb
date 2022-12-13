@@ -13,10 +13,10 @@ class Doppelganger < ApplicationRecord
   validates :gender, presence: true
   validates :bio, presence: true, length: { in: 10..280 }
   enum gender: {
-    other: 0,
-    male: 1,
-    female: 2,
-    nonbinary: 3
+    Other: 0,
+    Male: 1,
+    Female: 2,
+    Nonbinary: 3
   }
 
   # include PgSearch::Model
