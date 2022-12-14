@@ -12,7 +12,12 @@
   display: flex;
   margin-bottom: 50px;
   justify-content: space-between;
-  gap: 50px
+  gap: 50px;
+  width: 100%;
+}
+
+.info-container {
+  width: 50%;
 }
 
 .booking-form-container {
@@ -21,5 +26,6 @@
   padding: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   position: sticky;
-  width: 70%;
+  max-width: 400px;
+  width: 50%;
 }
