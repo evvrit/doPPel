@@ -1,13 +1,10 @@
 
 .cards {
-  padding-top: 50px;
-  padding-left: 100px;
-  padding-right: 100px;
   padding-bottom: 400px;
   align-items: center;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .card-body {
@@ -18,8 +15,9 @@
 }
 
 .card-dg-index {
-  height: 300px;
-  width: 400px;
+  height: 250px;
+  width: 300px;
+  margin-bottom: 30px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -61,7 +59,7 @@
 
 .card-dg-index .card-infos {
   text-align: left;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   // align-items: flex-end;
@@ -69,13 +67,13 @@
 }
 
 .card-pricing h3 {
-  font-size: 20px;
+  font-size: 15px;
   text-align: right;
 }
 
 .card-name h2 {
-  font-size: 20px;
-  text-align: right;
+  font-size: 15px;
+  // text-align: right;
 }
 
 .card-infos .card-trip-user {
