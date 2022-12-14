@@ -20,9 +20,19 @@ class Doppelganger < ApplicationRecord
   }
 
   # include PgSearch::Model
-  # pg_search_scope :search_by_name_and_address_and_bio,
-  #   against: [ :name, :address, :bio ],
+  # pg_search_scope :filter_gender
+  #   against: [ :address, :gender, :age, :ethnicity, :height ]
   #   using: {
   #     tsearch: { prefix: true }
   #   }
+
+  # include PgSearch::Model
+  # pg_search_scope :filter, lambda { |attribute, query|
+  #   raise ArgumentError unless %i[address gender age ethnicity height].include?(attribute)
+
+  #   {
+  #     against: attribute,
+  #     query: query
+  #   }
+  # }
 end

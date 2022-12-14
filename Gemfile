@@ -57,6 +57,7 @@ gem "dotenv-rails", groups: [:development, :test]
 # Add cloudinary to upload photos
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
+gem "pg_search"
 
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
