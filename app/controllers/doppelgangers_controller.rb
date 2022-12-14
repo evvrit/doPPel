@@ -3,11 +3,34 @@ class DoppelgangersController < ApplicationController
 
   def index
     @doppelgangers = Doppelganger.all
+    # @attributes = params.slice("location", "age", "ethnicity", "height", "gender")
+    # sql_query = <<~SQL
+    #   address @@ ?
+    #   AND ethnicity @@ ?
+    #   AND gender = ?
+    # SQL
+    # raise
+
+    # location_query = "address @@ ?"
+    # ethnicity_query = "ethnicity @@ ?"
+    # gender_query = "gender = ?
+
+    # if @attributes.values.all?("")
+    #   @doppelgangers = Doppelganger.all
+    # else
+    #   @attributes.reject! { |_key, value| value == "" }
+
+    #   p @attributes.map { |key, value| key == :gender ? value.to_i : value }
+
+    #   @doppelgangers = Doppelganger.where(sql_query, attributes[:location], attributes[:ethnicity], attributes[:gender].to_i)
+    #   # @doppelgangers = Doppelganger.where(sql_query, attributes[:location])#, attributes[:ethnicity], attributes[:gender].to_i)
+    # end
+
     @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|
       {
         lat: doppel.latitude,
         lng: doppel.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {doppelganger: doppel})
+        info_window: render_to_string(partial: "info_window", locals: { doppelganger: doppel })
       }
     end
   end
@@ -54,7 +77,7 @@ class DoppelgangersController < ApplicationController
   private
 
   def doppelganger_params
-    params.require(:doppelganger).permit(:name, :age, :address, :rate, :photo, :gender, :bio)
+    params.require(:doppelganger).permit(:name, :age, :address, :rate, :photo, :gender, :bio, :ethnicity, :height)
   end
 
   def set_doppelganger

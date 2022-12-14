@@ -13,16 +13,26 @@ class Doppelganger < ApplicationRecord
   validates :gender, presence: true
   validates :bio, presence: true, length: { in: 10..280 }
   enum gender: {
-    other: 0,
-    male: 1,
-    female: 2,
-    nonbinary: 3
+    Other: 0,
+    Male: 1,
+    Female: 2,
+    Nonbinary: 3
   }
 
   # include PgSearch::Model
-  # pg_search_scope :search_by_name_and_address_and_bio,
-  #   against: [ :name, :address, :bio ],
+  # pg_search_scope :filter_gender
+  #   against: [ :address, :gender, :age, :ethnicity, :height ]
   #   using: {
   #     tsearch: { prefix: true }
   #   }
+
+  # include PgSearch::Model
+  # pg_search_scope :filter, lambda { |attribute, query|
+  #   raise ArgumentError unless %i[address gender age ethnicity height].include?(attribute)
+
+  #   {
+  #     against: attribute,
+  #     query: query
+  #   }
+  # }
 end
