@@ -7,8 +7,8 @@
         <% if  doppelganger.photo.key !=nil %>
           <%= cl_image_tag doppelganger.photo.key, height: 200, width: 300, crop: :fill %>
         <% else %>
-        <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
-          <% end %>
+          <%= image_tag doppelganger.seed_photo %>
+        <% end %>
         <div class="card-infos">
           <div class="card-name">
             <h2><%= doppelganger.name %></h2>
