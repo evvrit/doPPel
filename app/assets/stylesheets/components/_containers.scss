@@ -17,8 +17,13 @@
 }
 
 .photo-container {
-  width: 50%;
+  width: 100%;
+}
+
+.photo-container > img {
+  width: 70%;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .info-container {
@@ -33,4 +38,5 @@
   position: sticky;
   max-width: 400px;
   width: 50%;
+  height: 450px;
 }
