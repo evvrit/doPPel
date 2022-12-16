@@ -1,9 +1,12 @@
 <div class="card">
-  <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" class="card-img-top" />
-
+  <%= link_to booking_path(booking) do %>
+    <span class="doppelganger-show-link"></span>
+  <% end %>
+  <div class="booking-image">
+    <%= image_tag booking.doppelganger.seed_photo %>
+  </div>
   <div class="card-body">
-
-    <div style="display:flex; justify-content: space-between;"
+    <div style="display:flex; justify-content: space-between;">
       <h5 class="card-title"><%= booking.doppelganger.name %></h5>
       <% if booking.status == "pending" %>
         <span class="badge text-bg-secondary"><%= booking.status %></span>
