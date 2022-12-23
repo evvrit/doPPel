@@ -16,6 +16,13 @@
   width: 100%;
 }
 
+.photo-container {
+  width: 100%;
+  height: 35%;
+  display: flex;
+  gap: 2px;
+}
+
 .info-container {
   width: 50%;
 }
@@ -26,6 +33,8 @@
   padding: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   position: sticky;
+  top: 120px;
   max-width: 400px;
   width: 50%;
+  height: 450px;
 }
