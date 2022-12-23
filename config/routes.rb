@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   # get "/renter-bookings", to: "bookings#renter_bookings_index"
-  resources :bookings, only: %i[index new destroy]
+  resources :bookings, only: %i[index show new destroy]
   get "/bookings/:id/set-status", to: "bookings#set_status", as: :set_status
 end
