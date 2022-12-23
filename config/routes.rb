@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/profile'
   devise_for :users
+  get "/my_profile", to: "users#profile"
   root to: "doppelgangers#index"
 
   get "/my_roster", to: "doppelgangers#roster"
