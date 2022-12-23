@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings
-  has_many :doppelgangers
+  has_one :doppelgangers
   has_many :agent_bookings, through: :doppelgangers, source: :bookings
 end
