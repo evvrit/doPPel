@@ -1,11 +1,10 @@
-<div class="container">
-<p> edit <%= @doppelganger.name %>, doppelganger id. <%= @doppelganger.id %></p>
+<div class="doppelganger-form">
   <%= simple_form_for @doppelganger do |f| %>
     <%= f.input :name %>
     <%= f.input :age %>
     <%= f.input :bio %>
-    <%= f.input :address, label: "we are only servicing Ottawa, Montreal, Toronto." %>
+    <%= f.input :address %>
     <%= f.input :rate %>
-    <%= f.submit %>
+    <%= f.submit "Update Listing", class: "submit-doppelganger" %>
   <% end %>
 </div>

@@ -1,0 +1,28 @@
+.doppelganger-form {
+  width: 60%;
+  border: solid 1px $teal;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  .mb-3 {
+    font-size: 20px;
+    color: $teal;
+  }
+}
+
+.simple_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-doppelganger {
+  font-size: 25px;
+  color: $teal;
+  height: 50px;
+  width: 50%;
+  background-color: white;
+  border-radius: 5px;
+  border-color: $teal;
+  margin-top: 20px;
+  align-self: center;
+}
