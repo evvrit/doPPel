@@ -1,0 +1,14 @@
+<div class="container">
+  <p>Create your own listing </p>
+  <div class="form_doppelganger">
+    <%= simple_form_for @doppelganger do |f| %>
+      <%= f.input :name %>
+      <%= f.input :age %>
+      <%= f.input :address, label: "Street Address. *in Montreal, Ottawa, or Toronto." %>
+      <%= f.input :bio %>
+      <%= f.input :rate %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Create Listing" %>
+    <% end %>
+  </div>
+</div>

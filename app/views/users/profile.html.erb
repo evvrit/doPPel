@@ -1,0 +1,30 @@
+<div class="profile-container">
+  <div class="profile-info">
+    <div class="profile-photo-container">
+      <div class="first-photo">
+        <%= image_tag @doppelganger.seed_photo %>
+      </div>
+      <div class="smaller-photos">
+        <div class="second-photo">
+          <%= image_tag "placeholder.jpg" %>
+        </div>
+        <div class="third-photo">
+          <%= image_tag "placeholder.jpg" %>
+        </div>
+      </div>
+    </div>
+    <div class="profile-info-text">
+      <h4><%= "Name: #{current_user.first_name} #{current_user.last_name}" %></h4>
+      <h4><%= "E-mail: #{current_user.email}" %></h4>
+    </div>
+  </div>
+  <div class="profile-buttons">
+    <% if @doppelganger.nil? %>
+      <%= link_to "Create Listing", new_doppelganger_path, class: "button-53" %>
+    <% else %>
+      <%= link_to "Edit Listing", edit_doppelganger_path(@doppelganger), class: "button-53" %>
+    <% end %>
+    <%= link_to "Edit Profile", new_doppelganger_path, class: "button-53" %>
+    <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "button-53" %>
+  </div>
+</div>
