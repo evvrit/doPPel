@@ -2,23 +2,30 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-color:#70e7cb;
+  border-color:$teal;
+  border-radius: 8px;
   margin-bottom: 10px;
   width: 100%;
   height: 200px;
   box-shadow: 2px 2px 12px (1,1,1,0.1);
 }
 
-.card-title {
-  font-weight: bold;
+.booking-image {
+  align-self: flex-start;
+  width: 35%;
+  height: 80%;
+  border-radius: 8px;
 }
 
-.card-img-top {
-  width: 150px;
-  height: 150px;
-  align-self: flex-start;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: calc(0.25rem - 1px);
+.booking-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-title {
+  font-weight: bold;
 }
 
 .card-body {

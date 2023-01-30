@@ -1,5 +1,5 @@
 .mb-3 {
-  font-size: 30px;
+  font-size: 25px;
   color: $teal;
 }
 
@@ -27,13 +27,14 @@
 }
 
 #create-booking {
-  font-size: 30px;
+  font-size: 25px;
   color: $teal;
   height: 50px;
   width: 100%;
   background-color: white;
   border-radius: 5px;
   border-color: $teal;
+  margin-top: 20px;
 }
 
 #create-booking:hover {

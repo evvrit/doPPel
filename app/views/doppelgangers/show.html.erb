@@ -1,19 +1,28 @@
 <div class="show-container">
-  <div class="photo-container">
-    <%= image_tag @doppelganger.seed_photo %>
-  </div>
   <div class="info-container">
+    <div class="photo-container">
+      <div class="first-photo">
+        <%= image_tag @doppelganger.seed_photo %>
+      </div>
+      <div class="smaller-photos">
+        <div class="second-photo">
+          <%= image_tag "placeholder.jpg" %>
+        </div>
+        <div class="third-photo">
+          <%= image_tag "placeholder.jpg" %>
+        </div>
+      </div>
+    </div>
     <div class="doppelganger-info">
       <h2><%= @doppelganger.name %></h2>
-      <h4><%= @doppelganger.gender %></h4>
-      <h4><%= "#{@doppelganger.age} years old" %></h4>
-      <h4><%= @doppelganger.address %></h4>
+      <h6><%= "#{@doppelganger.gender} | #{@doppelganger.age} years old" %></h6>
+      <h5><%= @doppelganger.address %></h6>
     </div>
     <div class="doppelganger-bio">
       <p><%= @doppelganger.bio %></p>
     </div>
   </div>
   <div class="booking-form-container">
-    <%= render "booking_form" %>
+    <%= render "doppelgangers/booking_form" %>
   </div>
 </div>

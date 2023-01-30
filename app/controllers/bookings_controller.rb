@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[destroy set_status]
+  before_action :set_booking, only: %i[destroy show set_status]
   before_action :set_doppelganger, only: %i[new create]
 
   def index
     @outgoing_bookings = Booking.where(user_id: current_user.id)
-    @incoming_bookings = current_user.agent_bookings
+    @incoming_bookings = Booking.where(doppelganger_id: Doppelganger.where(user_id: current_user))
   end
 
   def new

@@ -1,23 +1,40 @@
-<div class="container">
-  <div>
-    <h1>Here is the info on your Booking</h1>
-    <%= link_to "back to my bookings", bookings_path %>
-
-    <h4><%= @booking.doppelganger.name %></h4>
-    <p>will show up at <%= @booking.address %></p>
-    <p>start date: <%= @booking.start_date.strftime('%b %e, %l:%M %p') %></p>
-    <p>end date: <%= @booking.end_date.strftime('%b %e, %l:%M %p') %></p>
-    <p>status: <%= @booking.status %></p>
-    <% if @booking.doppelganger.user == current_user && @booking.status == "pending" %>
-      <div>
-        <%= link_to "accept",  set_status_path(@booking, status: 1) %>
-        <%= link_to "reject",  set_status_path(@booking, status: 2) %>
+<div class="show-container">
+  <div class="info-container">
+    <div class="photo-container">
+      <div class="first-photo">
+        <%= image_tag @booking.doppelganger.seed_photo %>
       </div>
-    <% end %>
-    <% if @booking.user == current_user && @booking.status == "pending" %>
-      <div>
-        <%= link_to "cancel",  set_status_path(@booking, status: 3) %>
+      <div class="smaller-photos">
+        <div class="second-photo">
+          <%= image_tag "placeholder.jpg" %>
+        </div>
+        <div class="third-photo">
+          <%= image_tag "placeholder.jpg" %>
+        </div>
       </div>
-    <% end %>
+    </div>
+    <div class="doppelganger-info">
+      <h2><%= @booking.doppelganger.name %></h2>
+      <h6>will show up at <%= @booking.address %></h6>
+      <h6>start date: <%= @booking.start_date.strftime('%b %e, %l:%M %p') %></h6>
+      <h6>end date: <%= @booking.end_date.strftime('%b %e, %l:%M %p') %></h6>
+      <h6>status: <%= @booking.status %></h6>
+    </div>
+    <div>
+      <% if @booking.doppelganger.user == current_user && @booking.status == "pending" %>
+        <div>
+          <%= link_to "accept",  set_status_path(@booking, status: 1), class: "button-53" %>
+          <%= link_to "reject",  set_status_path(@booking, status: 2), class: "button-53" %>
+        </div>
+      <% end %>
+      <% if @booking.user == current_user && @booking.status == "pending" %>
+        <div>
+          <%= link_to "cancel",  set_status_path(@booking, status: 3), class: "button-53" %>
+        </div>
+      <% end %>
+  </div>
+  </div>
+  <div class="booking-map-container">
+    <%= image_tag "map-placeholder.jpg" %>
   </div>
 </div>
