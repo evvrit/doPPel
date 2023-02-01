@@ -13,3 +13,11 @@
   display: flex;
   justify-content: space-around;
 }
+
+.map {
+  align-self: flex-start;
+  position: sticky;
+  overflow: hidden;
+  height: 84vh;
+  top: 15vh;
+}
