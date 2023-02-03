@@ -17,7 +17,7 @@
             <h3><%= "#{doppelganger.rate}$ CAD/hour" %></h3>
           </div>
           <% if doppelganger.user == current_user %>
-            <div class="my-doppelganger-icon">!</div>
+              <%= image_tag "your_listing.png", class: "my-doppelganger-icon" %>
           <% end %>
         </div>
       </div>

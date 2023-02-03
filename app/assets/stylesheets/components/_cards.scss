@@ -18,7 +18,7 @@
   height: 250px;
   width: 300px;
   margin-bottom: 30px;
-  overflow: hidden;
+  overflow: visible;
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   border-radius: 8px;
@@ -85,7 +85,10 @@
 
 .my-doppelganger-icon {
   padding: 10px;
-  background-color: orange;
+  width:90px;
+  position: absolute;
+  right: -18px;
+  top: -212px;
 }
 
 
