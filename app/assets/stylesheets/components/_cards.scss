@@ -4,7 +4,8 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-right: 25px;
 }
 
 .card-body {
@@ -29,6 +30,7 @@
   height: 80%;
   width: 100%;
   object-fit: cover;
+  border-radius: 5px 5px 0px 0px;
 }
 
 
