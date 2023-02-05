@@ -17,12 +17,9 @@
             <h3><%= "#{doppelganger.rate}$ CAD/hour" %></h3>
           </div>
           <% if doppelganger.user == current_user %>
-            <%= image_tag "your_listing.png", class: "my-doppelganger-icon" %>
-          <% elsif doppelganger.seed_photo %>
-            <%= image_tag "test_listing.png", class: "my-doppelganger-icon" %>
+            <div class="my-doppelganger-icon">!</div>
           <% end %>
         </div>
       </div>
   <% end %>
 </div>
-<%= render "doppelgangers/map" %>

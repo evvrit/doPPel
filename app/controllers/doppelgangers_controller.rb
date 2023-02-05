@@ -26,11 +26,11 @@ class DoppelgangersController < ApplicationController
     #   # @doppelgangers = Doppelganger.where(sql_query, attributes[:location])#, attributes[:ethnicity], attributes[:gender].to_i)
     # end
 
-    @markers = Doppelganger.geocoded.map do |doppel|
+    @markers = Doppelganger.geocoded.where("latitude >= 40").map do |doppel|
       {
         lat: doppel.latitude,
         lng: doppel.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { doppelganger: doppel })
+        info_window: render_to_string(partial: "info_window", locals: { doppelganger: doppel })
       }
     end
   end

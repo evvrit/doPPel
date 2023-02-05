@@ -24,33 +24,6 @@ photos = [
   "striped_shirt.avif"
 ]
 
-places = [
-  "3463 Rue Sainte-Famille, Montréal",
-  "3680 Jeanne-Mance St, Montreal",
-  "3685 Aylmer St, Montreal",
-  "4102 Rue Clark, Montréal",
-  "953 Napoleon St, Montreal",
-  "4416 Rue Berri, Montréal",
-  "4766 Brebeuf St, Montreal",
-  "5187 St Andre St, Montreal",
-  "80 St Viateur St. E, Montreal",
-  "6580 Casgrain Ave, Montreal",
-  "6970 Av. Wiseman, Montréal",
-  "21 Av. Maplewood, Outremont",
-  "6452 Rue Lemay, Montréal",
-  "5678 Rue de Marseille, Montreal",
-  "2653 Rue Du Quesne, Montréal",
-  "1926 Av. Émile Legrand, Montréal",
-  "4299 Rue de Rouen, Montréal",
-  "2161 Av. de la Salle, Montréal",
-  "2535 Rue Davidson, Montréal",
-  "1908 Rue D'Iberville, Montréal",
-  "1632 Rue Dorion, Montréal",
-  "2210 Visitation St, Montreal",
-  "4376 Drolet St, Montreal",
-  "1050 Rue Sainte-Elisabeth, Montreal"
-]
-
 puts "cleaning the DB of users and doppelgangers..."
 Doppelganger.destroy_all
 User.destroy_all
@@ -91,7 +64,7 @@ User.all.each do |user|
     name: "#{user.first_name} #{user.last_name}",
     age: rand(21..100),
     gender: rand(1..3),
-    address: places.sample,
+    address: Faker::Address.full_address,
     rate: rand(20..500),
     bio: Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote,
     user: user,
@@ -109,5 +82,5 @@ end
 #   user_id:
 # )
 
-puts "24 fake doppelgangers created, **not all with valid geocodes"
+puts "24 fake doppelgangers created, **not all with valid geocodes -- approx. 83% success rate.**"
 # puts "20 fake bookings created."

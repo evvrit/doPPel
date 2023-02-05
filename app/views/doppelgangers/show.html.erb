@@ -2,11 +2,7 @@
   <div class="info-container">
     <div class="photo-container">
       <div class="first-photo">
-        <% if @doppelganger.seed_photo.nil? %>
-          <%= cl_image_tag @doppelganger.photo.key%>
-        <% else %>
-          <%= image_tag @doppelganger.seed_photo %>
-        <% end %>
+        <%= image_tag @doppelganger.seed_photo %>
       </div>
       <div class="smaller-photos">
         <div class="second-photo">

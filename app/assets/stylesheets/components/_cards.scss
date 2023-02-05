@@ -4,9 +4,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-right: 20px;
-  width: 280%;
+  justify-content: space-around;
 }
 
 .card-body {
@@ -20,7 +18,7 @@
   height: 250px;
   width: 300px;
   margin-bottom: 30px;
-  overflow: visible;
+  overflow: hidden;
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   border-radius: 8px;
@@ -31,7 +29,6 @@
   height: 80%;
   width: 100%;
   object-fit: cover;
-  border-radius: 5px 5px 0px 0px;
 }
 
 
@@ -88,10 +85,7 @@
 
 .my-doppelganger-icon {
   padding: 10px;
-  width:90px;
-  position: absolute;
-  right: -18px;
-  top: -212px;
+  background-color: orange;
 }
 
 
