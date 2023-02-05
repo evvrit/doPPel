@@ -17,8 +17,10 @@
           <li class="nav-item dropdown">
             <% if Doppelganger.where(user_id: current_user).first.nil? %>
               <%= image_tag "placeholder.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
+            <% elsif Doppelganger.where(user_id: current_user).first.photo.nil? %>
               <%= image_tag Doppelganger.where(user_id: current_user).first.seed_photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= cl_image_tag Doppelganger.where(user_id: current_user).first.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Homepage", "/", class: "dropdown-item" %>

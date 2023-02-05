@@ -4,6 +4,8 @@
       <div class="first-photo">
       <% if @doppelganger.nil? %>
         <%= image_tag "placeholder.jpg" %>
+      <% elsif @doppelganger.seed_photo.nil? %>
+        <%= cl_image_tag @doppelganger.photo.key %>
       <% else %>
         <%= image_tag @doppelganger.seed_photo %>
       <% end %>

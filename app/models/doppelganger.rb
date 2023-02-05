@@ -7,6 +7,7 @@ class Doppelganger < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   validates :name, presence: true
+  # validates :photo || :seed_photo, presence: true
   validates :address, presence: true
   validates :age, presence: true, comparison: { greater_than_or_equal_to: 21 }
   validates :rate, presence: true, comparison: { greater_than_or_equal_to: 20 }
